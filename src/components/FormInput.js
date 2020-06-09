@@ -28,6 +28,7 @@ const Form = ({
   errorText = '',
   onFocus = null,
   inputLimit = null,
+  value = '',
   
 }) => {
   return (
@@ -40,6 +41,7 @@ const Form = ({
           underlineColorAndroid={'transparent'}
           style={styles.textInput}
           onChangeText={callback}
+          value = {value}
           maxLength = {inputLimit}
           onFocus = {()=>onFocus!=null ? onFocus(isRequired):null}
         />

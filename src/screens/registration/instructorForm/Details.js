@@ -9,22 +9,56 @@ import FormLabel from '../../../components/FormLabel';
 import UploadButton from '../../../components/UploadButton';
 import {RFValue} from 'react-native-responsive-fontsize';
 import CheckBoxInput from '../../../components/CheckBoxInput';
-import FormButton from '../../../components/FormButton';
+import FormButton from '../../../components/MediumButton';
 import FormHeading from '../../../components/FormHeading';
 import Toast from 'react-native-simple-toast';
-import {isDatePast , isDateFuture, toDate , getCurrentDate} from '../../../globals/functions';
+import {
+  isDatePast,
+  isDateFuture,
+  toDate,
+  getCurrentDate,
+} from '../../../globals/functions';
+import Store from '../../../stores';
 
 export default class Details extends Component {
+  componentDidMount = () => {
+    let {orderStore} = Store;
+
+    this.setState ({
+      numberText: orderStore.instructor.details.numberText,
+      placeOfDeliveryText: orderStore.instructor.details.placeOfDeliveryText,
+      dateOfObtaining: orderStore.instructor.details.dateOfObtaining,
+      validityDate: orderStore.instructor.details.validityDate,
+      drivingLicenseUri: orderStore.instructor.details.drivingLicenseUri,
+      liceneseObtained: orderStore.instructor.details.liceneseObtained,
+      dateOfAuthorization: orderStore.instructor.details.dateOfAuthorization,
+      expirationDate: orderStore.instructor.details.expirationDate,
+      issuingAuthorityText: orderStore.instructor.details.issuingAuthorityText,
+      authorizationUri: orderStore.instructor.details.authorizationUri,
+      serialNumberText: orderStore.instructor.details.serialNumberText,
+      kblsUri: orderStore.instructor.details.kblsUri,
+      selectedDropdownValue: orderStore.instructor.details
+        .selectedDropdownValue,
+      selectedLicenseForValue: orderStore.instructor.details
+        .selectedLicenseForValue,
+      selectedLicenseTypeValue: orderStore.instructor.details
+        .selectedLicenseTypeValue,
+      selectedLicenseIndex: orderStore.instructor.details.selectedLicenseIndex,
+      licenseForindex: orderStore.instructor.details.licenseForindex,
+      licenseTypeIndex: orderStore.instructor.details.licenseTypeIndex,
+    });
+  };
+
   constructor (props) {
     super (props);
     this.state = {
-      dateOfObtaining: getCurrentDate(),
-      showDateOfObtainingError:false,
-      showValidityDateError:false,
+      dateOfObtaining: getCurrentDate (),
+      showDateOfObtainingError: false,
+      showValidityDateError: false,
       validityDate: '',
       dateOfAuthorization: '',
-      showAuthorizationDateError:false,
-      showExpirationDateError:false,
+      showAuthorizationDateError: false,
+      showExpirationDateError: false,
       expirationDate: '',
       selectedDropdownValue: '',
       numberText: '',
@@ -51,9 +85,6 @@ export default class Details extends Component {
 
       selectedLicenseIndex: 0,
 
-
-      complementText: '',
-
       issuingAuthorityText: '',
       showIssuingAuthorityError: false,
 
@@ -66,6 +97,8 @@ export default class Details extends Component {
       authorizationUri: '',
       showAuthorizationError: false,
       showKblsUriError: false,
+      licenseForindex: 0,
+      licenseTypeIndex: 0,
     };
   }
 
@@ -76,7 +109,6 @@ export default class Details extends Component {
     if (this.state.placeOfDeliveryText.length === 0)
       this.setState ({showPlaceOfDeliveryError: true});
     else this.setState ({showPlaceOfDeliveryError: false});
-    
 
     if (this.state.drivingLicenseUri.length === 0)
       this.setState ({showDrivingLicenseError: true});
@@ -87,7 +119,6 @@ export default class Details extends Component {
     if (this.state.kblsUri.length === 0)
       this.setState ({showKblsUriError: true});
     else this.setState ({showKblsUriError: false});
-   
 
     if (this.state.issuingAuthorityText.length === 0)
       this.setState ({showIssuingAuthorityError: true});
@@ -99,6 +130,29 @@ export default class Details extends Component {
   };
 
   areAllFieldsClear = () => {
+
+
+    let {orderStore} = Store;
+    orderStore.instructor.details.numberText = this.state.numberText;
+    orderStore.instructor.details.placeOfDeliveryText = this.state.placeOfDeliveryText;
+    orderStore.instructor.details.dateOfObtaining = this.state.dateOfObtaining;
+    orderStore.instructor.details.validityDate = this.state.validityDate;
+    orderStore.instructor.details.drivingLicenseUri = this.state.drivingLicenseUri;
+    orderStore.instructor.details.liceneseObtained = this.state.liceneseObtained;
+    orderStore.instructor.details.dateOfAuthorization = this.state.dateOfAuthorization;
+    orderStore.instructor.details.expirationDate = this.state.expirationDate;
+    orderStore.instructor.details.issuingAuthorityText = this.state.issuingAuthorityText;
+    orderStore.instructor.details.authorizationUri = this.state.authorizationUri;
+    orderStore.instructor.details.serialNumberText = this.state.serialNumberText;
+    orderStore.instructor.details.kblsUri = this.state.kblsUri;
+    orderStore.instructor.details.selectedDropdownValue = this.state.selectedDropdownValue;
+    orderStore.instructor.details.selectedLicenseForValue = this.state.selectedLicenseForValue;
+    orderStore.instructor.details.selectedLicenseTypeValue = this.state.selectedLicenseTypeValue;
+    orderStore.instructor.details.selectedLicenseIndex = this.state.selectedLicenseIndex;
+    orderStore.instructor.details.licenseForindex = this.state.licenseForindex;
+    orderStore.instructor.details.licenseTypeIndex = this.state.licenseTypeIndex;
+
+
     if (
       !this.state.showNumberError &&
       !this.state.showPlaceOfDeliveryError &&
@@ -113,7 +167,10 @@ export default class Details extends Component {
       !this.state.showExpirationDateError
     ) {
       Toast.show ('You May Proceed (Debud Text)');
+      return true;
     } else Toast.show ('Fill all the required fields (Debud Text)');
+
+   return false;
   };
 
   render () {
@@ -125,6 +182,7 @@ export default class Details extends Component {
         <FormLabel label="Number" />
 
         <Form
+          value={this.state.numberText}
           formType={'numeric'}
           callback={text => {
             this.setState ({numberText: text});
@@ -143,6 +201,7 @@ export default class Details extends Component {
         <FormLabel label="Place Of Delivery" />
 
         <Form
+          value={this.state.placeOfDeliveryText}
           callback={text => {
             this.setState ({placeOfDeliveryText: text});
             if (text.length === 0) {
@@ -163,37 +222,31 @@ export default class Details extends Component {
           date={this.state.dateOfObtaining}
           callback={date => {
             this.setState ({dateOfObtaining: date});
-            if(isDateFuture(date))
-            {
-              this.setState({showDateOfObtainingError:true});
-            }
-            else
-            this.setState({showDateOfObtainingError:false});
+            if (isDateFuture (date)) {
+              this.setState ({showDateOfObtainingError: true});
+            } else this.setState ({showDateOfObtainingError: false});
           }}
-          showError = {this.state.showDateOfObtainingError}
-          errorText = {'Date Cannot Be From Future'}
+          showError={this.state.showDateOfObtainingError}
+          errorText={'Date Cannot Be From Future'}
         />
-        
+
         <View style={styles.verticalSpace} />
         <FormLabel label="Validity Date" />
 
         <CalandarInput
           date={this.state.validityDate}
           callback={date => {
+            let validDate = toDate (date);
+            let obtainDate = toDate (this.state.dateOfObtaining);
 
-
-            let validDate = toDate(date);
-            let obtainDate = toDate(this.state.dateOfObtaining);
-
-            if(validDate < obtainDate)
-              this.setState({showValidityDateError:true});
-              else
-              this.setState({showValidityDateError:false});
+            if (validDate < obtainDate)
+              this.setState ({showValidityDateError: true});
+            else this.setState ({showValidityDateError: false});
 
             this.setState ({validityDate: date});
           }}
-          showError = {this.state.showValidityDateError}
-          errorText = {'Validatity date can\'t be less than to obtain date.'}
+          showError={this.state.showValidityDateError}
+          errorText={"Validatity date can't be less than to obtain date."}
         />
         <View style={styles.verticalSpace} />
 
@@ -235,6 +288,7 @@ export default class Details extends Component {
                   this.setState ({
                     selectedLicenseForValue: itemValue,
                     selectedLicenseIndex: itemIndex,
+                    licenseForindex: itemIndex,
                   });
                 }}
               />
@@ -245,7 +299,10 @@ export default class Details extends Component {
                 values={this.state.licenseType[this.state.selectedLicenseIndex]}
                 selectedValue={this.state.selectedLicenseTypeValue}
                 callback={(itemValue, itemIndex) => {
-                  this.setState ({selectedLicenseTypeValue: itemValue});
+                  this.setState ({
+                    selectedLicenseTypeValue: itemValue,
+                    licenseTypeIndex: itemIndex,
+                  });
                 }}
               />
 
@@ -259,20 +316,14 @@ export default class Details extends Component {
         <CalandarInput
           date={this.state.dateOfAuthorization}
           callback={date => {
-            this.setState ({dateOfAuthorization:date});
+            this.setState ({dateOfAuthorization: date});
 
-
-            if(isDateFuture(date))
-            {
-              this.setState({showAuthorizationDateError:true});
-            }
-            else
-            this.setState({showAuthorizationDateError:false});
+            if (isDateFuture (date)) {
+              this.setState ({showAuthorizationDateError: true});
+            } else this.setState ({showAuthorizationDateError: false});
           }}
-          showError = {this.state.showAuthorizationDateError}
-          errorText = {'Date Cannot Be From Future'}
-
-          
+          showError={this.state.showAuthorizationDateError}
+          errorText={'Date Cannot Be From Future'}
         />
         <View style={styles.verticalSpace} />
 
@@ -283,25 +334,19 @@ export default class Details extends Component {
           callback={date => {
             this.setState ({expirationDate: date});
 
-              
-            if(isDatePast(date))
-            {
-              this.setState({showExpirationDateError:true});
-            }
-            else
-            this.setState({showExpirationDateError:false});
+            if (isDatePast (date)) {
+              this.setState ({showExpirationDateError: true});
+            } else this.setState ({showExpirationDateError: false});
           }}
-          showError = {this.state.showExpirationDateError}
-          errorText = {'Date Cannot Be From Past'}
-            
-
-          
+          showError={this.state.showExpirationDateError}
+          errorText={'Date Cannot Be From Past'}
         />
         <View style={styles.verticalSpace} />
 
         <FormLabel label="Issuing Authority" />
 
         <Form
+          value={this.state.issuingAuthorityText}
           callback={text => {
             this.setState ({issuingAuthorityText: text});
             if (text.length === 0) {
@@ -339,6 +384,7 @@ export default class Details extends Component {
         <FormLabel label="Serial Number" />
 
         <Form
+          value={this.state.serialNumberText}
           formType={'numeric'}
           callback={text => {
             this.setState ({serialNumberText: text});
@@ -372,26 +418,45 @@ export default class Details extends Component {
           }}
         />
 
-        <FormButton
-          label="Submit"
-          showIcon={true}
-          callback={async () => {
-            await this.checkForEmptyFields ();
-            await this.areAllFieldsClear ();
-            this.props.onClickNext();
-             
-        }}
-          
+        <View
+        style = {styles.buttonRow}
+        >
+          <FormButton
+          label="Back"
+          showIconLeft={true}
+          leftIcon = {require('../../../../res/images/back.png')}
+          callback={() => {
+            
+            this.props.onClickPrevious ();
+
+          }}
         />
+        <FormButton
+          label="Next"
+          showIconRight={true}
+          rightIcon = {require('../../../../res/images/forward.png')}
+          callback={async() => {
+            await this.checkForEmptyFields ();
+            const clear = await this.areAllFieldsClear ();
+            if(clear)
+            this.props.onClickNext ();
+
+          }}
+        />
+
+        </View>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create ({
-  
   verticalSpace: {
     marginTop: margins.verticalSpace,
   },
-  
+  buttonRow:{
+    width:'100%',
+    flexDirection:'row',
+    justifyContent:'space-between',
+  },
 });

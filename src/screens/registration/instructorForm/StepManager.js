@@ -10,7 +10,7 @@ import Identity from './Identity';
 import Details from './Details';
 import Insurance from './Insurance';
 import Vehicle from './Vehicle';
-import {margins, paddings} from '../../../globals/styles';
+import {margins, paddings,colors} from '../../../globals/styles';
 const labels = ['Identity', 'Details', 'Insaurance', 'Vechicle', 'Done'];
 import {RFValue} from 'react-native-responsive-fontsize';
 
@@ -19,23 +19,23 @@ const customStyles = {
   currentStepIndicatorSize: 30,
   separatorStrokeWidth: 2,
   currentStepStrokeWidth: 3,
-  stepStrokeCurrentColor: '#fe7013',
+  stepStrokeCurrentColor: colors.primarybold,
   stepStrokeWidth: 3,
-  stepStrokeFinishedColor: '#fe7013',
+  stepStrokeFinishedColor: colors.primary,
   stepStrokeUnFinishedColor: '#aaaaaa',
-  separatorFinishedColor: '#fe7013',
+  separatorFinishedColor: colors.primary,
   separatorUnFinishedColor: '#aaaaaa',
-  stepIndicatorFinishedColor: '#fe7013',
+  stepIndicatorFinishedColor: colors.primarybold,
   stepIndicatorUnFinishedColor: '#ffffff',
   stepIndicatorCurrentColor: '#ffffff',
   stepIndicatorLabelFontSize: 13,
   currentStepIndicatorLabelFontSize: 13,
-  stepIndicatorLabelCurrentColor: '#fe7013',
+  stepIndicatorLabelCurrentColor: '#000000',
   stepIndicatorLabelFinishedColor: '#ffffff',
-  stepIndicatorLabelUnFinishedColor: '#aaaaaa',
-  labelColor: '#999999',
+  stepIndicatorLabelUnFinishedColor: colors.primarylight,
+  labelColor: colors.primarybold,
   labelSize: 13,
-  currentStepLabelColor: '#fe7013',
+  currentStepLabelColor: colors.primary,
 };
 
 export default class StepManager extends Component {
@@ -58,7 +58,7 @@ export default class StepManager extends Component {
             customStyles={customStyles}
             currentPosition={this.state.currentPosition}
             labels={labels}
-            onPress={this.onPageChange}
+            // onPress={this.onPageChange}
           />
           {this.state.currentPosition === 0
             ? <Identity
@@ -72,12 +72,19 @@ export default class StepManager extends Component {
                 onClickNext={() => {
                   this.setState ({currentPosition: 2});
                 }}
+                onClickPrevious={() => {
+                  console.warn('previous clicked')
+                  this.setState ({currentPosition: 0});
+                }}
               />
             : <View />}
           {this.state.currentPosition === 2
             ? <Insurance
                 onClickNext={() => {
                   this.setState ({currentPosition: 3});
+                }}
+                onClickPrevious = {()=>{
+                  this.setState({currentPosition:1});
                 }}
               />
             : <View />}

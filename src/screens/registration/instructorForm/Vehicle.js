@@ -12,13 +12,19 @@ import CheckBoxInput from '../../../components/CheckBoxInput';
 import FormButton from '../../../components/FormButton';
 import FormHeading from '../../../components/FormHeading';
 import Toast from 'react-native-simple-toast';
-
+import Store from '../../../stores'
 export default class Details extends Component {
   constructor (props) {
     super (props);
     this.state = {
       agreed: false,
     };
+  }
+
+
+  componentDidMount = ()=>{
+    const {orderStore} = Store;
+    this.setState({agreed:orderStore.instructor.vehicle.agreed})
   }
 
   render () {
@@ -38,7 +44,11 @@ export default class Details extends Component {
           label="Submit"
           showIcon={true}
           callback={() => {
-        
+            
+            const {orderStore} = Store;
+            orderStore.instructor.vehicle.agreed = this.state.agreed;
+            if(!this.state.agreed)
+              Toast.show('You Must Agree To Terms & Conditions')
           }}
         />
 

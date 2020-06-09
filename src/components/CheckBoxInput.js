@@ -42,7 +42,7 @@ const styles = StyleSheet.create ({
   rememberMeRowText: {
     color: 'black',
     fontSize: RFValue (15),
-    textAlign: 'center',
+    textAlign: 'left',
     marginTop: 5,
     marginStart: 5,
     flex:1,

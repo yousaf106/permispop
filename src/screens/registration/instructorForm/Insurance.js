@@ -9,7 +9,8 @@ import FormLabel from '../../../components/FormLabel';
 import UploadButton from '../../../components/UploadButton';
 import {RFValue} from 'react-native-responsive-fontsize';
 import CheckBoxInput from '../../../components/CheckBoxInput';
-import FormButton from '../../../components/FormButton';
+import FormButton from '../../../components/MediumButton';
+import UploadFileButton from '../../../components/FormButton';
 import FormHeading from '../../../components/FormHeading';
 import Toast from 'react-native-simple-toast';
 import {
@@ -19,6 +20,7 @@ import {
   getCurrentDate,
 } from '../../../globals/functions';
 import {pickDocument} from '../../../components/DocumentPicker';
+import Store from '../../../stores';
 export default class Insurance extends Component {
   constructor (props) {
     super (props);
@@ -74,6 +76,17 @@ export default class Insurance extends Component {
   };
 
   areAllFieldsClear = () => {
+    const {orderStore} = Store;
+    orderStore.instructor.insurance.insurerText = this.state.insurerText;
+    orderStore.instructor.insurance.policeNumberText = this.state.policeNumberText;
+    orderStore.instructor.insurance.insuranceExpirationDate = this.state.insuranceExpirationDate;
+    orderStore.instructor.insurance.rcUri = this.state.rcUri;
+    orderStore.instructor.insurance.vehicleInsurerText = this.state.vehicleInsurerText;
+    orderStore.instructor.insurance.vehicleNumberText = this.state.vehicleNumberText;
+    orderStore.instructor.insurance.startDate = this.state.startDate;
+    orderStore.instructor.insurance.endDate = this.state.endDate;
+    orderStore.instructor.insurance.greenCardUri = this.state.greenCardUri;
+
     if (
       !this.state.showPoliceNumberError &&
       !this.state.showInsurerError &&
@@ -85,7 +98,26 @@ export default class Insurance extends Component {
       !this.state.showEndDateError
     ) {
       Toast.show ('You May Proceed (Debud Text)');
+      return true;
     } else Toast.show ('Fill all the required fields (Debud Text)');
+
+    return false;
+  };
+
+  componentDidMount = () => {
+    const {orderStore} = Store;
+    this.setState ({
+      insurerText: orderStore.instructor.insurance.insurerText,
+      policeNumberText: orderStore.instructor.insurance.policeNumberText,
+      insuranceExpirationDate: orderStore.instructor.insurance
+        .insuranceExpirationDate,
+      rcUri: orderStore.instructor.insurance.rcUri,
+      vehicleInsurerText: orderStore.instructor.insurance.vehicleInsurerText,
+      vehicleNumberText: orderStore.instructor.insurance.vehicleNumberText,
+      startDate: orderStore.instructor.insurance.startDate,
+      endDate: orderStore.instructor.insurance.endDate,
+      greenCardUri: orderStore.instructor.insurance.greenCardUri,
+    });
   };
 
   render () {
@@ -97,6 +129,7 @@ export default class Insurance extends Component {
         <FormLabel label="Insurer" />
 
         <Form
+          value={this.state.insurerText}
           callback={text => {
             this.setState ({insurerText: text});
             if (text.length === 0) {
@@ -114,6 +147,7 @@ export default class Insurance extends Component {
         <FormLabel label="Police Number" />
 
         <Form
+          value={this.state.policeNumberText}
           formType={'numeric'}
           callback={text => {
             this.setState ({policeNumberText: text});
@@ -167,6 +201,7 @@ export default class Insurance extends Component {
         <FormLabel label="Insurer" />
 
         <Form
+          value={this.state.vehicleInsurerText}
           callback={text => {
             this.setState ({vehicleInsurerText: text});
             if (text.length === 0) {
@@ -184,6 +219,7 @@ export default class Insurance extends Component {
         <FormLabel label="Police Number" />
 
         <Form
+          value={this.state.vehicleNumberText}
           formType={'numeric'}
           callback={text => {
             this.setState ({vehicleNumberText: text});
@@ -228,7 +264,7 @@ export default class Insurance extends Component {
         />
 
         <FormLabel label="Scan and upload your authorization" />
-        <FormButton
+        <UploadFileButton
           label="Upload File"
           showError={this.state.showGreenCardError}
           errorText="You must upload image"
@@ -267,15 +303,28 @@ export default class Insurance extends Component {
           }}
         /> */}
 
-        <FormButton
-          label="Submit"
-          showIcon={true}
-          callback={async () => {
-            await this.checkForEmptyFields ();
-            await this.areAllFieldsClear ();
-            this.props.onClickNext ();
-          }}
-        />
+        <View style={styles.buttonRow}>
+          <FormButton
+            label="Back"
+            showIconLeft={true}
+            leftIcon={require ('../../../../res/images/back.png')}
+            callback={() => {
+              this.props.onClickPrevious ();
+            }}
+          />
+          <FormButton
+            label="Next"
+            showIconRight={true}
+            rightIcon={require ('../../../../res/images/forward.png')}
+            callback={async () => {
+              await this.checkForEmptyFields ();
+              const clear = await this.areAllFieldsClear ();
+              if (clear) this.props.onClickNext ();
+            }}
+          />
+
+        </View>
+
       </View>
     );
   }
@@ -284,5 +333,10 @@ export default class Insurance extends Component {
 const styles = StyleSheet.create ({
   verticalSpace: {
     marginTop: margins.verticalSpace,
+  },
+  buttonRow: {
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
 });
