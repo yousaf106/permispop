@@ -80,6 +80,79 @@ class orderStore {
             agreed:false,
         },
     };
+    
+    @observable  school = {
+        identity:{
+            tradeNameText:'',
+            companyNameText:'',
+            addressText:'',
+            zipCodeText:'',
+            cityText:'',
+            emailText:'',
+            phoneText:'',
+            passwordText:'',
+            confirmPasswordText:'',
+            complementText:'',
+            secondEmailText:'',
+            secondPhoneText:'',
+        },
+        details:{
+            numberText: '',
+
+            drivingLicenseUri: '',
+            
+
+            
+
+            dateOfApproval: getCurrentDate(),
+            issuingAuthorityText: '',
+            
+            certificationUri: '',
+
+            serialNumberText: '',
+  
+            kblsUri: '',
+ 
+            
+            
+      
+      
+        },
+        insurance:{
+            insurerText:'',
+
+            policeNumberText: '',
+      
+            insuranceExpirationDate: '',
+            rcUri: '',
+      
+           
+      
+
+        },
+
+        manager:{
+            fitstNameText:'',
+            surNameText:'',
+            profileUri:'',
+            placeOfBirthText:'',
+           
+            addressText:'',
+            zipCodeText:'',
+            cityText:'',
+            emailText:'',
+            
+            confirmPasswordText:'',
+            date:'01-1-2002',
+            selectedDropdownValue:'',
+            complementText:'',
+            agreed:false,
+        },
+
+        vehicle:{
+            agreed:false,
+        },
+    };
     @observable splash = null;
     @observable plans = {};
     @observable locale = 'ur';

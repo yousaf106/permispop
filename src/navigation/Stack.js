@@ -7,12 +7,28 @@ import Splash from '../screens/Splash';
 import Login from '../screens/Login';
 import StudentForm from '../screens/registration/StudentForm';
 import {colors} from '../globals/styles';
-import StepManager from '../screens/registration/instructorForm/StepManager'
+import StepManager from '../screens/registration/instructorForm/StepManager';
+import SchoolStepManager from '../screens/registration/drivingSchoolForm/StepManager';
 const Stack = createStackNavigator ();
 
 const navigationStack = () => (
   <Stack.Navigator>
 
+
+
+<Stack.Screen
+      options={({navigation}) => ({
+        headerStyle: {
+          backgroundColor: colors.primary,
+        },
+        headerTitleStyle: {
+          color: 'white',
+        },
+        title: 'Driving School Registration',
+      })}
+      name="SchoolStepManager"
+      component={SchoolStepManager}
+    />
 
 
 
