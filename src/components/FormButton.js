@@ -40,6 +40,7 @@ const styles = StyleSheet.create ({
     paddingEnd: 5,
     flexDirection: 'row',
     marginTop: margins.verticalSpace,
+    borderRadius:25,
   },
   buttonText: {
     fontSize: RFValue (15),

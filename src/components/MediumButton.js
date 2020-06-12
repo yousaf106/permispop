@@ -42,7 +42,7 @@ const styles = StyleSheet.create ({
     paddingEnd: 20,
     flexDirection: 'row',
     marginTop: margins.verticalSpace,
-    alignSelf:'baseline'
+    borderRadius:25,
   },
   buttonText: {
     fontSize: RFValue (16),

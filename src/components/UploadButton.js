@@ -86,6 +86,7 @@ const styles = StyleSheet.create ({
     justifyContent: 'center',
     paddingStart:5,
     paddingEnd:5,
+    borderRadius:25,
   },
   buttonText: {
     fontSize: RFValue (15),

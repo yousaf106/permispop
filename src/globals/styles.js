@@ -6,6 +6,8 @@ export const colors = {
   gray: '#848484',
   primarybold: '#0a8068',
 
+  red:'#a83236',
+
   wheat: '#f7f7f7',
   darkgray: '#959596',
   black: '#222222',

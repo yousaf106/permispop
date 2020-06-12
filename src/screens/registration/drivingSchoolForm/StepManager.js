@@ -100,7 +100,14 @@ export default class StepManager extends Component {
                 }}
               />
             : <View />}
-          {this.state.currentPosition === 4 ? <Vehicle /> : <View />}
+          {this.state.currentPosition === 4 ? <Vehicle 
+           onClickNext={() => {
+            this.setState ({currentPosition: 5});
+          }}
+          onClickPrevious={() => {
+            this.setState ({currentPosition: 3});
+          }}
+        /> : <View />}
 
         </ScrollView>
 

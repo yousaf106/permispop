@@ -150,8 +150,10 @@ class orderStore {
         },
 
         vehicle:{
-            agreed:false,
+            vehicle:null,
+            modal:null,
         },
+        
     };
     @observable splash = null;
     @observable plans = {};
