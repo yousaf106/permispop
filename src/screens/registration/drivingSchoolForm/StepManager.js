@@ -11,8 +11,16 @@ import Details from './Details';
 import Insurance from './Insurance';
 import Vehicle from './Vehicle';
 import Manager from './Manager';
+import Instructor from './Instructor';
 import {margins, paddings, colors} from '../../../globals/styles';
-const labels = ['Identity', 'Details', 'Insaurance', 'Manager', 'Vechicle'];
+const labels = [
+  'Identity',
+  'Details',
+  'Insaurance',
+  'Manager',
+  'Vechicle',
+  'Instructor',
+];
 import {RFValue} from 'react-native-responsive-fontsize';
 
 const customStyles = {
@@ -35,7 +43,7 @@ const customStyles = {
   stepIndicatorLabelFinishedColor: '#ffffff',
   stepIndicatorLabelUnFinishedColor: colors.primarylight,
   labelColor: colors.primarybold,
-  labelSize: 13,
+  labelSize: RFValue(10),
   currentStepLabelColor: colors.primary,
 };
 
@@ -55,11 +63,13 @@ export default class StepManager extends Component {
           contentContainerStyle={{paddingBottom: 20}}
         >
           <View style={styles.verticalSpace} />
+         
           <StepIndicator
             customStyles={customStyles}
             currentPosition={this.state.currentPosition}
             labels={labels}
-            onPress={this.onPageChange}
+            stepCount = {6}
+            //  onPress={this.onPageChange}
           />
           {this.state.currentPosition === 0
             ? <Identity
@@ -100,14 +110,27 @@ export default class StepManager extends Component {
                 }}
               />
             : <View />}
-          {this.state.currentPosition === 4 ? <Vehicle 
-           onClickNext={() => {
-            this.setState ({currentPosition: 5});
-          }}
-          onClickPrevious={() => {
-            this.setState ({currentPosition: 3});
-          }}
-        /> : <View />}
+          {this.state.currentPosition === 4
+            ? <Vehicle
+                onClickNext={() => {
+                  this.setState ({currentPosition: 5});
+                }}
+                onClickPrevious={() => {
+                  this.setState ({currentPosition: 3});
+                }}
+              />
+            : <View />}
+
+          {this.state.currentPosition === 5
+            ? <Instructor
+                onClickNext={() => {
+                  this.setState ({currentPosition: 6});
+                }}
+                onClickPrevious={() => {
+                  this.setState ({currentPosition: 4});
+                }}
+              />
+            : <View />}
 
         </ScrollView>
 
@@ -126,6 +149,8 @@ const styles = StyleSheet.create ({
     backgroundColor: 'white',
     width: '100%',
     height: '100%',
+    paddingBottom:50,
+
   },
   verticalSpace: {
     marginTop: margins.verticalSpace,

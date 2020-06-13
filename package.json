@@ -30,6 +30,7 @@
     "react-native-responsive-fontsize": "^0.4.3",
     "react-native-safe-area-context": "^3.0.2",
     "react-native-screens": "^2.8.0",
+    "react-native-simple-radio-button": "^2.7.4",
     "react-native-simple-toast": "^1.1.2",
     "react-native-splash-screen": "^3.2.0",
     "react-native-step-indicator": "0.0.11",

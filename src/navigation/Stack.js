@@ -9,6 +9,7 @@ import StudentForm from '../screens/registration/StudentForm';
 import {colors} from '../globals/styles';
 import StepManager from '../screens/registration/instructorForm/StepManager';
 import SchoolStepManager from '../screens/registration/drivingSchoolForm/StepManager';
+import ScreenNavigator from '../screens/registration/ScreenNavigator';
 const Stack = createStackNavigator ();
 
 const navigationStack = () => (
@@ -24,10 +25,10 @@ const navigationStack = () => (
         headerTitleStyle: {
           color: 'white',
         },
-        title: 'Driving School Registration',
+        title: 'Registration',
       })}
-      name="SchoolStepManager"
-      component={SchoolStepManager}
+      name="ScreenNavigator"
+      component={ScreenNavigator}
     />
 
 

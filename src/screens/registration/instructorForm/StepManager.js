@@ -107,12 +107,10 @@ const styles = StyleSheet.create ({
     backgroundColor: 'white',
     width: '100%',
     height: '100%',
+    paddingBottom:50,
   },
   verticalSpace: {
     marginTop: margins.verticalSpace,
   },
-  redText: {
-    color: 'red',
-    fontSize: RFValue (14),
-  },
+  
 });

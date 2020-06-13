@@ -153,6 +153,10 @@ class orderStore {
             vehicle:null,
             modal:null,
         },
+        instructor:{
+            instructor:null,
+            moadl:null,
+        },
         
     };
     @observable splash = null;

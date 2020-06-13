@@ -462,7 +462,7 @@ export default class Identity extends Component {
               this.setState ({showPhoneError: true});
           }}
           showError={this.state.showPhoneError}
-          errorText={'First Name Should Not Be Empty'}
+          errorText={'Phone Number Should Not Be Empty'}
           formType="phone-pad"
         />
 
