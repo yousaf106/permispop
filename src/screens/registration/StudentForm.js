@@ -67,7 +67,10 @@ export default class StudentForm extends Component {
       showProfileError: false,
       showFrontError: false,
       showBackError: false,
-    };
+
+
+      numberOfHoursText:'',
+       };
   }
 
   checkForEmptyFields = () => {
@@ -202,6 +205,7 @@ export default class StudentForm extends Component {
             }}
             showError={this.state.showFirstNameError}
             errorText={'First Name Should Not Be Empty'}
+            value = {this.state.fitstNameText}
           />
 
           <FormLabel label="Surname" />
@@ -219,6 +223,7 @@ export default class StudentForm extends Component {
             }}
             showError={this.state.showSurNameError}
             errorText={'Surname Should Not Be Empty'}
+            value = {this.state.surNameText}
           />
 
           <FormLabel label="Date Of Birth" />
@@ -246,6 +251,7 @@ export default class StudentForm extends Component {
             }}
             showError={this.state.PlaceOfBirthError}
             errorText={'Place Of Birth Should Not Be Empty'}
+            value = {this.state.placeOfBirthText}
           />
 
           <FormLabel label="Gender" />
@@ -295,6 +301,7 @@ export default class StudentForm extends Component {
             }}
             showError={this.state.showAddressError}
             errorText={'Address Should Not Be Empty'}
+            value = {this.state.addressText}
           />
 
           <FormLabel label="Complement" isRequired={false} />
@@ -303,11 +310,13 @@ export default class StudentForm extends Component {
             callback={text => {
               this.setState ({complementText: text});
             }}
+          value = {this.state.complementText}
           />
 
           <FormLabel label="Zip Code" />
 
           <Form
+            value = {this.state.zipCodeText}
             callback={text => {
               this.setState ({zipCodeText: text});
               if (text.length === 0) {
@@ -326,6 +335,7 @@ export default class StudentForm extends Component {
           <FormLabel label="City" />
 
           <Form
+            value = {this.state.cityText}
             callback={text => {
               this.setState ({cityText: text});
               if (text.length === 0) {
@@ -343,6 +353,7 @@ export default class StudentForm extends Component {
           <FormLabel label="Email" />
 
           <Form
+            value = {this.state.emailText}
             callback={text => {
               this.setState ({emailText: text});
               if (text.length === 0) {
@@ -361,6 +372,7 @@ export default class StudentForm extends Component {
           <FormLabel label="Phone" />
 
           <Form
+            value = {this.state.phoneText}
             callback={text => {
               this.setState ({phoneText: text});
               if (text.length === 0) {
@@ -379,8 +391,9 @@ export default class StudentForm extends Component {
           <FormLabel label="Email (2nd Email)" isRequired={false} />
 
           <Form
+            value = {this.state.secondEmailText}
             callback={text => {
-              console.warn (text);
+              this.setState({secondEmailText:text})
             }}
             formType="email-address"
             isRequired={false}
@@ -389,9 +402,10 @@ export default class StudentForm extends Component {
           <FormLabel isRequired={false} label="Phone (2nd Phone)" />
 
           <Form
+          value = {this.state.secondPhoneText}
             isRequired={false}
             callback={text => {
-              console.warn (text);
+              this.setState({secondPhoneText:text})
             }}
             formType="phone-pad"
           />
@@ -399,6 +413,7 @@ export default class StudentForm extends Component {
           <FormLabel label="Password" />
 
           <Form
+            value = {this.state.passwordText}
             callback={async text => {
               await this.setState ({passwordText: text});
               if (text.length === 0) {
@@ -429,6 +444,7 @@ export default class StudentForm extends Component {
           <FormLabel label="Confirm Password" />
 
           <Form
+            value = {this.state.confirmPasswordText}
             callback={async text => {
               await this.setState ({confirmPasswordText: text});
               if (text.length === 0) {
@@ -462,13 +478,15 @@ export default class StudentForm extends Component {
           />
           <Form
             callback={text => {
-              console.warn (text);
+                this.setState({numberOfHoursText:text})
             }}
             isRequired={false}
+            value = {this.state.numberOfHoursText}
           />
 
           <FormLabel label="NEPH number" isRequired={false} />
           <Form
+            value = {this.state.nephText}
             callback={text => {
               this.setState ({nephText: text});
               if (text.length < 12) this.setState ({showNephError: true});

@@ -36,7 +36,6 @@ import {
   getCurrentDate,
   validateEmail,
 } from '../../../globals/functions';
-
 class DataModel {
   dataModel = {
     dateOfBirthText: '01-01-2002',
@@ -144,7 +143,6 @@ export default class Instructor extends Component {
 
   componentDidMount = async () => {
     const {orderStore} = Store;
-
     if (orderStore.school.instructor.instructor != null) {
       await this.setState ({
         instructor: orderStore.school.instructor.instructor,

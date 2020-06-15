@@ -26,6 +26,8 @@ const styles = StyleSheet.create ({
     color: 'black',
     marginTop: margins.verticalSpace,
     fontSize: RFValue (15),
+    fontFamily:'sans-serif-light',
+    letterSpacing:2,
   },
 
   asteric: {

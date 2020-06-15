@@ -29,8 +29,9 @@ errorText = '',}) => {
             width: '100%',
             backgroundColor: 'white',
             height: 50,
-            borderColor: 'black',
-            borderWidth: 0.5,
+            borderColor: 'gray',
+            borderWidth: 1,
+            borderRadius:5,
             marginTop: margins.verticalSpace,
           },
           dateText: {
