@@ -120,7 +120,7 @@ class DataModel {
     showTechnicalControlEndDateError: false,
     rcUri: '',
     showRcUriError: false,
-    
+
 };
 }
 
@@ -219,7 +219,7 @@ export default class Instructor extends Component {
 
               <FormHeading heading="Indentity" />
 
-              <FormLabel label="First Name" />
+              <FormLabel label="" />
               <Form
                 value={this.state.instructor.firstNameText}
                 callback={text => {
@@ -249,9 +249,10 @@ export default class Instructor extends Component {
                 }}
                 showError={this.state.instructor.showFirstNameError}
                 errorText={'First Name Should Not Be Empty'}
+                placeholder={"Enter First Name"}
               />
 
-              <FormLabel label="SurName" />
+              <FormLabel label="" />
               <Form
                 value={this.state.instructor.surNameText}
                 callback={text => {
@@ -281,6 +282,7 @@ export default class Instructor extends Component {
                 }}
                 showError={this.state.instructor.showSurNameError}
                 errorText={'SurName Should Not Be Empty'}
+                placeholder={"Enter SurName"}
               />
 
               <FormLabel label="Upload Image" />
@@ -312,7 +314,7 @@ export default class Instructor extends Component {
               />
               <View style={styles.verticalSpace} />
 
-              <FormLabel label="Place Of Birth" />
+              <FormLabel label="" />
               <Form
                 value={this.state.instructor.placeOfBirthText}
                 callback={text => {
@@ -342,6 +344,7 @@ export default class Instructor extends Component {
                 }}
                 showError={this.state.instructor.showPlaceOfBirthError}
                 errorText={'Place Of Birth Should Not Be Empty'}
+                placeholder={"Enter Place Of Birth"}
               />
 
               <FormLabel label="Gender" />
@@ -359,7 +362,7 @@ export default class Instructor extends Component {
                 }}
               />
 
-              <FormLabel label="Address" />
+              <FormLabel label="" />
               <Form
                 value={this.state.instructor.addressText}
                 callback={text => {
@@ -389,9 +392,10 @@ export default class Instructor extends Component {
                 }}
                 showError={this.state.instructor.showAddressError}
                 errorText={'Address Should Not Be Empty'}
+                placeholder={"Enter Address"}
               />
 
-              <FormLabel label="Complement" isRequired={false} />
+              <FormLabel label="" isRequired={false} />
               <Form
                 value={this.state.instructor.complementText}
                 callback={text => {
@@ -399,9 +403,10 @@ export default class Instructor extends Component {
                   clone.complementText = text;
                   this.setState ({instructor: clone});
                 }}
+                placeholder={"Enter Complement"}
               />
 
-              <FormLabel label="Zip Code" />
+              <FormLabel label="" />
               <Form
                 value={this.state.instructor.zipCodeText}
                 callback={text => {
@@ -432,9 +437,10 @@ export default class Instructor extends Component {
                 showError={this.state.instructor.showZipCodeError}
                 errorText={'Zip Code Should Not Be Empty'}
                 formType="numeric"
+                placeholder={"Enter Zip Code"}
               />
 
-              <FormLabel label="City" />
+              <FormLabel label="" />
               <Form
                 value={this.state.instructor.cityText}
                 callback={text => {
@@ -464,9 +470,10 @@ export default class Instructor extends Component {
                 }}
                 showError={this.state.instructor.showCityError}
                 errorText={'City Should Not Be Empty'}
+                placeholder={"Enter City"}
               />
 
-              <FormLabel label="Email" />
+              <FormLabel label="" />
 
               <Form
                 value={this.state.instructor.emailText}
@@ -510,9 +517,10 @@ export default class Instructor extends Component {
                 showError={this.state.instructor.showEmailError}
                 errorText={this.state.instructor.emailErrorText}
                 formType="email-address"
+                placeholder={"Enter Email"}
               />
 
-              <FormLabel label="Phone" />
+              <FormLabel label="" />
 
               <Form
                 value={this.state.instructor.phoneText}
@@ -544,9 +552,10 @@ export default class Instructor extends Component {
                 showError={this.state.instructor.showPhoneError}
                 errorText={'Phone Number Should Not Be Empty'}
                 formType="phone-pad"
+                placeholder={"Enter Phone"}
               />
 
-              <FormLabel label="Email (2nd Email)" isRequired={false} />
+              <FormLabel label="" isRequired={false} />
 
               <Form
                 value={this.state.instructor.secondEmailText}
@@ -574,9 +583,10 @@ export default class Instructor extends Component {
                 errorText={'Enter a valid email'}
                 formType="email-address"
                 isRequired={false}
+                placeholder={"Enter Email (2nd Email)"}
               />
 
-              <FormLabel isRequired={false} label="Phone (2nd Phone)" />
+              <FormLabel isRequired={false} label="" />
 
               <Form
                 value={this.state.instructor.secondPhoneText}
@@ -587,9 +597,10 @@ export default class Instructor extends Component {
                   this.setState ({clone: text});
                 }}
                 formType="phone-pad"
+                placeholder={"Enter Phone (2nd Phone)"}
               />
 
-              <FormLabel label="Password" />
+              <FormLabel label="" />
 
               <Form
                 value={this.state.instructor.passwordText}
@@ -628,9 +639,10 @@ export default class Instructor extends Component {
                 showError={this.state.instructor.showPasswordError}
                 errorText={this.state.instructor.passwordErrorText}
                 hideText={true}
+                placeholder={"Enter Password"}
               />
 
-              <FormLabel label="Confirm Password" />
+              <FormLabel label="" />
 
               <Form
                 value={this.state.instructor.confirmPasswordText}
@@ -677,11 +689,12 @@ export default class Instructor extends Component {
                 showError={this.state.instructor.showConfirmPasswordError}
                 errorText={this.state.instructor.confirmPasswordErrorText}
                 hideText={true}
+                placeholder={"Confirm Password"}
               />
 
               <FormHeading heading="Driver License" />
 
-              <FormLabel label="Number" />
+              <FormLabel label="" />
               <Form
                 value={this.state.instructor.numberText}
                 callback={text => {
@@ -712,6 +725,7 @@ export default class Instructor extends Component {
                 }}
                 showError={this.state.instructor.showNumberError}
                 errorText={'Number Should Not Be Empty'}
+                placeholder={"Enter Number"}
               />
 
               <FormLabel label="Date Of Obtaining" />
@@ -802,7 +816,7 @@ export default class Instructor extends Component {
 
               <View style={styles.verticalSpace} />
 
-              <FormLabel label="Issung Authority" />
+              <FormLabel label="" />
               <Form
                 value={this.state.instructor.issuingAuthorityText}
                 callback={text => {
@@ -832,6 +846,7 @@ export default class Instructor extends Component {
                 }}
                 showError={this.state.instructor.showIssuingAuthorityError}
                 errorText={'Issung Authority Should Not Be Empty'}
+                placeholder={"Enter Issung Authority"}
               />
 
               <FormLabel label="Scan and upload your authority" />
@@ -889,12 +904,12 @@ export default class Instructor extends Component {
               />
 
 {this.state.selectedRadioIndex === 1 ?<View>
-             
+
                 <FormHeading heading = "Business"/>
 
 
-                
-              <FormLabel label="Slret Number" />
+
+              <FormLabel label="" />
               <Form
                 value={this.state.instructor.slretNumberText}
                 callback={text => {
@@ -925,6 +940,7 @@ export default class Instructor extends Component {
                 }}
                 showError={this.state.instructor.showSlretNumberError}
                 errorText={'slretNumber Number Should Not Be Empty'}
+                placeholder={"Enter Slret Number"}
               />
 
 
@@ -950,7 +966,7 @@ export default class Instructor extends Component {
 
               <FormHeading heading="Insurance Company" />
 
-              <FormLabel label="Insurer" />
+              <FormLabel label="" />
               <Form
                 value={this.state.instructor.insurerText}
                 callback={text => {
@@ -980,9 +996,10 @@ export default class Instructor extends Component {
                 }}
                 showError={this.state.instructor.showInsurerError}
                 errorText={'Insurer Should Not Be Empty'}
+                placeholder={"Enter Insurer"}
               />
 
-              <FormLabel label="Police Number" />
+              <FormLabel label="" />
               <Form
                 value={this.state.instructor.policeNumberText}
                 callback={text => {
@@ -1013,6 +1030,7 @@ export default class Instructor extends Component {
                 }}
                 showError={this.state.instructor.showPoliceNumberError}
                 errorText={'Police Number Should Not Be Empty'}
+                placeholder={"Enter Police Number"}
               />
 
               <FormLabel label="Expiration date of your Insurance RC Pro" />
@@ -1033,7 +1051,7 @@ export default class Instructor extends Component {
                 }}
               />
 
-              
+
               <FormLabel label="Scan and upload your RC Pro" />
               <UploadButton
                 showError={this.state.instructor.showRcUriError}
@@ -1052,7 +1070,7 @@ export default class Instructor extends Component {
                 }}
               />
               </View>
-       :<View/>}      
+       :<View/>}
         <View style={styles.addButtonRow}>
                 <MediumButton
                   label="Add"
@@ -1387,8 +1405,8 @@ export default class Instructor extends Component {
     const {orderStore} = Store;
 
     orderStore.school.instructor.modal = this.state.modalData;
- 
- 
+
+
  if(this.state.selectedRadioIndex === 0){
 
 
@@ -1410,7 +1428,7 @@ export default class Instructor extends Component {
         !this.state.modalData.showDateOfObtainingError &&
         !this.state.modalData.showDateOfAuthorizationError &&
         !this.state.modalData.showIssuingAuthorityError &&
-        !this.state.modalData.showAuthorityUriError 
+        !this.state.modalData.showAuthorityUriError
 
       ) {
         Toast.show ('You May Proceed (Debud Text)');
@@ -1454,8 +1472,8 @@ export default class Instructor extends Component {
 }
 
 
- 
-   
+
+
 
     return false;
   };
@@ -1753,16 +1771,16 @@ export default class Instructor extends Component {
           !this.state.instructor.showDateOfAuthorizationError &&
           !this.state.instructor.showExpirationDateError &&
           !this.state.instructor.showIssuingAuthorityError &&
-          !this.state.instructor.showAuthorityUriError 
-    
+          !this.state.instructor.showAuthorityUriError
+
         ) {
           Toast.show ('You May Proceed (Debud Text)');
           return true;
         } else Toast.show ('Fill all the required fields (Debud Text)');
-    
-    } 
 
-    
+    }
+
+
   if(this.state.selectedRadioIndex === 1)
 {    if (
       !this.state.instructor.showFirstNameError &&
@@ -1795,7 +1813,7 @@ export default class Instructor extends Component {
       return true;
     } else Toast.show ('Fill all the required fields (Debud Text)');
 
-} 
+}
    return false;
   };
 
@@ -1820,7 +1838,7 @@ export default class Instructor extends Component {
 
             <FormHeading heading="Vehicle Details" />
 
-            
+
             <FormLabel label="First Name" />
             <Form
               value={this.state.modalData.firstNameText}
@@ -2167,7 +2185,7 @@ export default class Instructor extends Component {
                   const valid = validateEmail (text);
                   if (!valid) {
                     clone.showSecondEmailError = true;
-                    
+
                     this.setState ({modalData: clone});
                   } else {
                     clone.showSecondEmailError = false;
@@ -2480,7 +2498,7 @@ export default class Instructor extends Component {
               errorText="Date Cannot Be From Past"
             />
 
-          
+
             <View style={styles.verticalSpace} />
 
             <FormHeading heading="Type of contract with the driving school" />
@@ -2499,7 +2517,7 @@ export default class Instructor extends Component {
 {this.state.selectedRadioIndex === 1 ?<View>
 
             <FormHeading  heading="Business"/>
-              
+
 
             <FormLabel label="Slret Number" />
               <Form
@@ -2642,7 +2660,7 @@ export default class Instructor extends Component {
               }}
             />
 
-       
+
             <View style={styles.verticalSpace} />
             <FormLabel label="Scan and upload your RC Pro" />
             <UploadButton

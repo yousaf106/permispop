@@ -16,7 +16,7 @@ errorText = '',}) => {
     <View>
 
       <DatePicker
-        style={{width: '100%', marginTop: margins.verticalSpace}}
+        style={{width: '100%', marginTop: margins.verticalSpace, }}
         date={date} //initial date from state
         mode="date" //The enum of date, datetime and time
         placeholder=""

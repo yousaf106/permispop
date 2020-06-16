@@ -192,9 +192,9 @@ export default class Identity extends Component {
   };
 
   areAllFieldsClear = () => {
- 
- 
- 
+
+
+
     let {orderStore} = Store;
     orderStore.instructor.identity.fitstNameText = this.state.fitstNameText;
     orderStore.instructor.identity.surNameText = this.state.surNameText;
@@ -214,12 +214,12 @@ export default class Identity extends Component {
     orderStore.instructor.identity.complementText = this.state.complementText;
     orderStore.instructor.identity.secondEmailText = this.state.secondEmailText;
     orderStore.instructor.identity.secondPhoneText = this.state.secondPhoneText;
- 
- 
- 
- 
- 
- 
+
+
+
+
+
+
     if (
       !this.state.showFirstNameError &&
       !this.state.showSurNameError &&
@@ -257,7 +257,7 @@ export default class Identity extends Component {
           text="Upload Image"
         />
 
-        <FormLabel label="First Name" />
+        <FormLabel  />
 
         <Form
           value={this.state.fitstNameText}
@@ -273,9 +273,10 @@ export default class Identity extends Component {
           }}
           showError={this.state.showFirstNameError}
           errorText={'First Name Should Not Be Empty'}
+          placeholder={"Enter First Name"}
         />
 
-        <FormLabel label="Surname" />
+        <FormLabel  />
 
         <Form
           value={this.state.surNameText}
@@ -291,6 +292,7 @@ export default class Identity extends Component {
           }}
           showError={this.state.showSurNameError}
           errorText={'Surname Should Not Be Empty'}
+          placeholder={"Enter Surname"}
         />
 
         <FormLabel label="Date Of Birth" />
@@ -303,7 +305,7 @@ export default class Identity extends Component {
         />
         <View style={styles.verticalSpace} />
 
-        <FormLabel label="Place Of Birth" />
+        <FormLabel  />
 
         <Form
           value={this.state.placeOfBirthText}
@@ -319,6 +321,7 @@ export default class Identity extends Component {
           }}
           showError={this.state.PlaceOfBirthError}
           errorText={'Place Of Birth Should Not Be Empty'}
+          placeholder={"Enter Place Of Birth"}
         />
 
         <FormLabel label="Gender" />
@@ -353,7 +356,7 @@ export default class Identity extends Component {
           }}
         />
 
-        <FormLabel label="Address" />
+        <FormLabel  />
 
         <Form
           value={this.state.addressText}
@@ -369,18 +372,20 @@ export default class Identity extends Component {
           }}
           showError={this.state.showAddressError}
           errorText={'Address Should Not Be Empty'}
+          placeholder={"Enter Address"}
         />
 
-        <FormLabel label="Complement" isRequired={false} />
+        <FormLabel  isRequired={false} />
 
         <Form
           value={this.state.complementText}
           callback={text => {
             this.setState ({complementText: text});
           }}
+          placeholder={"Enter Complement"}
         />
 
-        <FormLabel label="Zip Code" />
+        <FormLabel  />
 
         <Form
           value={this.state.zipCodeText}
@@ -397,9 +402,10 @@ export default class Identity extends Component {
           showError={this.state.showZipCodeError}
           errorText={'Zip Code Should Not Be Empty'}
           formType="number-pad"
+          placeholder={"Enter Zip Code"}
         />
 
-        <FormLabel label="City" />
+        <FormLabel  />
 
         <Form
           value={this.state.cityText}
@@ -415,9 +421,10 @@ export default class Identity extends Component {
           }}
           showError={this.state.showCityError}
           errorText={'City Should Not Be Empty'}
+          placeholder={"Enter City Name"}
         />
 
-        <FormLabel label="Email" />
+        <FormLabel  />
 
         <Form
           value={this.state.emailText}
@@ -445,9 +452,10 @@ export default class Identity extends Component {
           showError={this.state.showEmailError}
           errorText={this.state.emailErrorText}
           formType="email-address"
+          placeholder={"Enter Email"}
         />
 
-        <FormLabel label="Phone" />
+        <FormLabel  />
 
         <Form
           value={this.state.phoneText}
@@ -464,9 +472,10 @@ export default class Identity extends Component {
           showError={this.state.showPhoneError}
           errorText={'Phone Number Should Not Be Empty'}
           formType="phone-pad"
+          placeholder={"Enter Phone Number"}
         />
 
-        <FormLabel label="Email (2nd Email)" isRequired={false} />
+        <FormLabel  isRequired={false} />
 
         <Form
           value={this.state.secondEmailText}
@@ -475,9 +484,10 @@ export default class Identity extends Component {
           }}
           formType="email-address"
           isRequired={false}
+          placeholder={"Enter 2nd Email"}
         />
 
-        <FormLabel isRequired={false} label="Phone (2nd Phone)" />
+        <FormLabel isRequired={false}  />
 
         <Form
           value={this.state.secondPhoneText}
@@ -486,9 +496,10 @@ export default class Identity extends Component {
             this.setState({secondPhoneText:text});
           }}
           formType="phone-pad"
+          placeholder={"Enter 2nd Phone Number"}
         />
 
-        <FormLabel label="Password" />
+        <FormLabel  />
 
         <Form
           value={this.state.passwordText}
@@ -517,9 +528,10 @@ export default class Identity extends Component {
           showError={this.state.showPasswordError}
           errorText={this.state.passwordErrorText}
           hideText={true}
+          placeholder={"Enter Password"}
         />
 
-        <FormLabel label="Confirm Password" />
+        <FormLabel  />
 
         <Form
           value={this.state.confirmPasswordText}
@@ -548,6 +560,7 @@ export default class Identity extends Component {
           showError={this.state.showConfirmPasswordError}
           errorText={this.state.confirmPasswordErrorText}
           hideText={true}
+          placeholder={"Confirm Password"}
         />
 
         <View style = {styles.buttonRow}>
@@ -558,7 +571,7 @@ export default class Identity extends Component {
             callback={async () => {
               await this.checkForEmptyFields ();
               const clear = await this.areAllFieldsClear ();
-              
+
               if(clear)
               this.props.onPressSubmit ();
             }}

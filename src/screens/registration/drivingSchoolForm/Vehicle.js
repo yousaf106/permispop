@@ -190,7 +190,7 @@ export default class Details extends Component {
               />
 
               <View style={styles.verticalSpace} />
-              <FormLabel label="Brand" />
+              <FormLabel label="" />
               <Form
                 value={this.state.vehicles.brandText}
                 callback={text => {
@@ -220,6 +220,7 @@ export default class Details extends Component {
                 }}
                 showError={this.state.vehicles.showBrandError}
                 errorText={'Brand Should Not Be Empty'}
+                placeholder={"Enter Brand"}
               />
 
               <FormLabel label="Upload Image" />
@@ -240,7 +241,7 @@ export default class Details extends Component {
                 }}
               />
 
-              <FormLabel label="Model" />
+              <FormLabel label="" />
               <Form
                 value={this.state.vehicles.modelText}
                 callback={text => {
@@ -270,6 +271,7 @@ export default class Details extends Component {
                 }}
                 showError={this.state.vehicles.showModelError}
                 errorText={'Model Should Not Be Empty'}
+                placeholder={"Enter Model"}
               />
 
               <FormLabel label="Gearbox" />
@@ -305,7 +307,7 @@ export default class Details extends Component {
                 }}
               />
 
-              <FormLabel label="Color" />
+              <FormLabel label="" />
               <Form
                 value={this.state.vehicles.colorText}
                 callback={text => {
@@ -335,6 +337,7 @@ export default class Details extends Component {
                 }}
                 showError={this.state.vehicles.showColorError}
                 errorText={'Colors Should Not Be Empty'}
+                placeholder={"Enter Color"}
               />
 
               <FormLabel label="Energy" />
@@ -354,7 +357,7 @@ export default class Details extends Component {
 
               <FormHeading heading="Vehicle Insurance" />
 
-              <FormLabel label="Insurer" />
+              <FormLabel label="" />
               <Form
                 value={this.state.vehicles.insurerText}
                 callback={text => {
@@ -384,9 +387,10 @@ export default class Details extends Component {
                 }}
                 showError={this.state.vehicles.showInsurerError}
                 errorText={'Insurer Should Not Be Empty'}
+                placeholder={"Enter Insurer"}
               />
 
-              <FormLabel label="Police Number" />
+              <FormLabel label="" />
               <Form
                 value={this.state.vehicles.policeNumberText}
                 callback={text => {
@@ -417,6 +421,7 @@ export default class Details extends Component {
                 }}
                 showError={this.state.vehicles.showPoliceNumberError}
                 errorText={'Police Number Should Not Be Empty'}
+                placeholder={"Enter Police Number"}
               />
 
               <FormLabel label="Upload Scanned Green Card" />

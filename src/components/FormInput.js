@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import {colors, margins} from '../globals/styles';
 import {RFValue} from 'react-native-responsive-fontsize';
-
+import {TextField} from 'react-native-ui-lib'
 // export default class FormInput extends Component {
 //   constructor (props) {
 //     super (props);
@@ -29,13 +29,17 @@ const Form = ({
   onFocus = null,
   inputLimit = null,
   value = '',
-  
+  placeholder,
+
 }) => {
   return (
     <View>
 
       <View style={styles.textInputContainer}>
-        <TextInput
+        <TextField
+          placeholder={placeholder}
+          floatOnFocus={true}
+          floatingPlaceholder={true}
           keyboardType={formType}
           secureTextEntry={hideText}
           underlineColorAndroid={'transparent'}
@@ -72,9 +76,9 @@ const styles = StyleSheet.create ({
     backgroundColor: 'white',
     height: 50,
     borderColor: 'gray',
-    borderWidth: 1,
+    // borderBottomWidth: 1,
     borderRadius:5,
-    marginTop: margins.verticalSpace,
+    marginBottom: margins.verticalSpace,
   },
   asteric: {
     color: 'red',

@@ -68,7 +68,7 @@ export default class UploadButton extends PureComponent {
 
         {this.props.showError
         ? <Text style={styles.redText}>{this.props.errorText}</Text>
-        : <View />} 
+        : <View />}
       </View>
     );
   }
@@ -76,6 +76,7 @@ export default class UploadButton extends PureComponent {
 const styles = StyleSheet.create ({
   container: {
     width: '100%',
+    // margin: 2,
     marginTop: margins.verticalSpace,
   },
   buttonContainer: {
@@ -87,6 +88,7 @@ const styles = StyleSheet.create ({
     paddingStart:5,
     paddingEnd:5,
     borderRadius:25,
+    elevation: 7
   },
   buttonText: {
     fontSize: RFValue (15),

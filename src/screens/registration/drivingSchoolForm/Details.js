@@ -108,7 +108,7 @@ export default class Details extends Component {
 
         <FormHeading heading="Approval" />
 
-        <FormLabel label="Number" />
+        <FormLabel label="" />
 
         <Form
           value={this.state.numberText}
@@ -125,9 +125,10 @@ export default class Details extends Component {
           }}
           showError={this.state.showNumberError}
           errorText={'Number Should Not Be Empty'}
+          placeholder={"Enter Number"}
         />
 
-        <FormLabel label="Issuing Authority" />
+        <FormLabel label="" />
 
         <Form
           value={this.state.issuingAuthorityText}
@@ -143,6 +144,7 @@ export default class Details extends Component {
           }}
           showError={this.state.showIssuingAuthorityError}
           errorText={'Issuing Authority Must Not Be Emply'}
+          placeholder={"Enter Issuing Authority"}
         />
 
         <FormLabel label="Upload your certification" />
@@ -179,7 +181,7 @@ export default class Details extends Component {
         />
         <View style={styles.verticalSpace} />
 
-        <FormLabel label="Serial Number" />
+        <FormLabel label="" />
 
         <Form
           value={this.state.serialNumberText}
@@ -196,6 +198,7 @@ export default class Details extends Component {
           }}
           showError={this.state.showSerialError}
           errorText={'Serial Should Not Be Empty'}
+          placeholder={"Enter Serial Number"}
         />
 
         <FormLabel label="Upload your kbls" />

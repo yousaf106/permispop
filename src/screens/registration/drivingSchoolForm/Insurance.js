@@ -84,7 +84,7 @@ export default class Insurance extends Component {
 
         <FormHeading heading="Insurance Company" />
 
-        <FormLabel label="Insurer" />
+        <FormLabel label="" />
 
         <Form
           value={this.state.insurerText}
@@ -100,9 +100,10 @@ export default class Insurance extends Component {
           }}
           showError={this.state.showInsurerError}
           errorText={'Insurer Should Not Be Empty'}
+          placeholder={"Enter Insurer"}
         />
 
-        <FormLabel label="Police Number" />
+        <FormLabel label="" />
 
         <Form
           value={this.state.policeNumberText}
@@ -119,6 +120,7 @@ export default class Insurance extends Component {
           }}
           showError={this.state.showPoliceNumberError}
           errorText={'Police Number Should Not Be Empty'}
+          placeholder={"Enter Police Number"}
         />
 
         <FormLabel label="Expiration date of your insurance" />

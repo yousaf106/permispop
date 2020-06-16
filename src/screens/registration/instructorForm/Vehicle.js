@@ -52,8 +52,8 @@ class DataModel {
     showImageUriError: false,
     registrationUri: '',
     showRegistrationUriError: false,
-   
-  
+
+
     technicalControlDate: getCurrentDate (),
     showTechnicalControlDateError: false,
     technicalControlEndDate: getCurrentDate (),
@@ -182,7 +182,7 @@ export default class Details extends Component {
               />
 
               <View style={styles.verticalSpace} />
-              <FormLabel label="Brand" />
+              <FormLabel  />
               <Form
                 value={this.state.vehicles.brandText}
                 callback={text => {
@@ -212,6 +212,7 @@ export default class Details extends Component {
                 }}
                 showError={this.state.vehicles.showBrandError}
                 errorText={'Brand Should Not Be Empty'}
+                placeholder={"Enter Brand"}
               />
 
               <FormLabel label="Upload Image" />
@@ -232,7 +233,7 @@ export default class Details extends Component {
                 }}
               />
 
-              <FormLabel label="Model" />
+              <FormLabel  />
               <Form
                 value={this.state.vehicles.modelText}
                 callback={text => {
@@ -262,6 +263,7 @@ export default class Details extends Component {
                 }}
                 showError={this.state.vehicles.showModelError}
                 errorText={'Model Should Not Be Empty'}
+                placeholder={"Enter Model"}
               />
 
               <FormLabel label="Gearbox" />
@@ -297,7 +299,7 @@ export default class Details extends Component {
                 }}
               />
 
-              <FormLabel label="Color" />
+              <FormLabel  />
               <Form
                 value={this.state.vehicles.colorText}
                 callback={text => {
@@ -327,6 +329,7 @@ export default class Details extends Component {
                 }}
                 showError={this.state.vehicles.showColorError}
                 errorText={'Colors Should Not Be Empty'}
+                placeholder={"Enter Color"}
               />
 
               <FormLabel label="Energy" />
@@ -344,7 +347,7 @@ export default class Details extends Component {
                 }}
               />
 
-            
+
               <FormHeading heading="Technical Control" />
 
               <FormLabel label="Date of Technical Control" />
@@ -531,7 +534,7 @@ export default class Details extends Component {
 
 
 
-   
+
 
     if (this.state.modalData.ctUri.length === 0) {
       const copy = this.state.modalData;
@@ -615,7 +618,7 @@ export default class Details extends Component {
       this.setState ({vehicles: copy});
     }
 
- 
+
 
 
 
@@ -633,7 +636,7 @@ export default class Details extends Component {
 
   areAllFieldsClear = () => {
     const {orderStore} = Store;
-  
+
     orderStore.school.vehicle.vehicle = this.state.vehicles;
     if (
       !this.state.vehicles.showBrandError &&
@@ -704,7 +707,7 @@ export default class Details extends Component {
             />
 
             <View style={styles.verticalSpace} />
-            <FormLabel label="Brand" />
+            <FormLabel  />
             <Form
               value={this.state.modalData.brandText}
               callback={text => {
@@ -734,6 +737,7 @@ export default class Details extends Component {
               }}
               showError={this.state.modalData.showBrandError}
               errorText={'Brand Should Not Be Empty'}
+              placeholder={"Enter Brand"}
             />
 
             <FormLabel label="Upload Image" />
@@ -754,7 +758,7 @@ export default class Details extends Component {
               }}
             />
 
-            <FormLabel label="Model" />
+            <FormLabel  />
             <Form
               value={this.state.modalData.modelText}
               callback={text => {
@@ -784,6 +788,7 @@ export default class Details extends Component {
               }}
               showError={this.state.modalData.showModelError}
               errorText={'Model Should Not Be Empty'}
+              placeholder={"Enter Model"}
             />
 
             <FormLabel label="Gearbox" />
@@ -819,7 +824,7 @@ export default class Details extends Component {
               }}
             />
 
-            <FormLabel label="Color" />
+            <FormLabel />
             <Form
               value={this.state.modalData.colorText}
               callback={text => {
@@ -849,6 +854,7 @@ export default class Details extends Component {
               }}
               showError={this.state.modalData.showColorError}
               errorText={'Colors Should Not Be Empty'}
+              placeholder={"Enter Color"}
             />
 
             <FormLabel label="Energy" />
@@ -866,7 +872,7 @@ export default class Details extends Component {
               }}
             />
 
-         
+
             <FormHeading heading="Technical Control" />
 
             <FormLabel label="Date of Technical Control" />

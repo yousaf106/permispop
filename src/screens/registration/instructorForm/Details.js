@@ -179,7 +179,7 @@ export default class Details extends Component {
 
         <FormHeading heading="Drivers License" />
 
-        <FormLabel label="Number" />
+        <FormLabel  />
 
         <Form
           value={this.state.numberText}
@@ -196,9 +196,10 @@ export default class Details extends Component {
           }}
           showError={this.state.showNumberError}
           errorText={'Number Should Not Be Empty'}
+          placeholder={"Enter License Number"}
         />
 
-        <FormLabel label="Place Of Delivery" />
+        <FormLabel  />
 
         <Form
           value={this.state.placeOfDeliveryText}
@@ -214,6 +215,7 @@ export default class Details extends Component {
           }}
           showError={this.state.showPlaceOfDeliveryError}
           errorText={'Place Of Delivery Should Not Be Empty'}
+          placeholder={"Enter Place Of Delivery"}
         />
 
         <FormLabel label="Date Of Obtaining" />
@@ -343,7 +345,7 @@ export default class Details extends Component {
         />
         <View style={styles.verticalSpace} />
 
-        <FormLabel label="Issuing Authority" />
+        <FormLabel  />
 
         <Form
           value={this.state.issuingAuthorityText}
@@ -359,6 +361,7 @@ export default class Details extends Component {
           }}
           showError={this.state.showIssuingAuthorityError}
           errorText={'Issuing Authority Must Not Be Emply'}
+          placeholder={"Enter Issuing Authority"}
         />
 
         <FormLabel label="Scan and upload your authorization" />
@@ -381,7 +384,7 @@ export default class Details extends Component {
 
         <FormHeading heading="Business" />
 
-        <FormLabel label="Serial Number" />
+        <FormLabel  />
 
         <Form
           value={this.state.serialNumberText}
@@ -398,6 +401,7 @@ export default class Details extends Component {
           }}
           showError={this.state.showSerialError}
           errorText={'Serial Should Not Be Empty'}
+          placeholder={"Enter Serial Number"}
         />
 
         <FormLabel label="Upload your kbls" />
@@ -426,7 +430,7 @@ export default class Details extends Component {
           showIconLeft={true}
           leftIcon = {require('../../../../res/images/back.png')}
           callback={() => {
-            
+
             this.props.onClickPrevious ();
 
           }}

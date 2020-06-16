@@ -190,7 +190,7 @@ export default class StudentForm extends Component {
             text="Upload Image"
           />
 
-          <FormLabel label="First Name" />
+          <FormLabel  />
 
           <Form
             callback={text => {
@@ -206,9 +206,10 @@ export default class StudentForm extends Component {
             showError={this.state.showFirstNameError}
             errorText={'First Name Should Not Be Empty'}
             value = {this.state.fitstNameText}
+            placeholder={'Enter First Name'}
           />
 
-          <FormLabel label="Surname" />
+          <FormLabel  />
 
           <Form
             callback={text => {
@@ -224,6 +225,8 @@ export default class StudentForm extends Component {
             showError={this.state.showSurNameError}
             errorText={'Surname Should Not Be Empty'}
             value = {this.state.surNameText}
+            placeholder={'Enter  Surname'}
+
           />
 
           <FormLabel label="Date Of Birth" />
@@ -236,7 +239,7 @@ export default class StudentForm extends Component {
           />
           <View style={styles.verticalSpace} />
 
-          <FormLabel label="Place Of Birth" />
+          <FormLabel  />
 
           <Form
             callback={text => {
@@ -252,6 +255,8 @@ export default class StudentForm extends Component {
             showError={this.state.PlaceOfBirthError}
             errorText={'Place Of Birth Should Not Be Empty'}
             value = {this.state.placeOfBirthText}
+            placeholder={'Enter Place Of Birth'}
+
           />
 
           <FormLabel label="Gender" />
@@ -286,7 +291,7 @@ export default class StudentForm extends Component {
             }}
           />
 
-          <FormLabel label="Address" />
+          <FormLabel  />
 
           <Form
             callback={text => {
@@ -302,18 +307,22 @@ export default class StudentForm extends Component {
             showError={this.state.showAddressError}
             errorText={'Address Should Not Be Empty'}
             value = {this.state.addressText}
+            placeholder={'Enter Address'}
+
           />
 
-          <FormLabel label="Complement" isRequired={false} />
+          <FormLabel  isRequired={false} />
 
           <Form
             callback={text => {
               this.setState ({complementText: text});
             }}
           value = {this.state.complementText}
+            placeholder={'Enter Complement'}
+
           />
 
-          <FormLabel label="Zip Code" />
+          <FormLabel  />
 
           <Form
             value = {this.state.zipCodeText}
@@ -330,9 +339,10 @@ export default class StudentForm extends Component {
             showError={this.state.showZipCodeError}
             errorText={'Zip Code Should Not Be Empty'}
             formType="number-pad"
+            placeholder={'Enter Zip Code'}
           />
 
-          <FormLabel label="City" />
+          <FormLabel  />
 
           <Form
             value = {this.state.cityText}
@@ -348,9 +358,10 @@ export default class StudentForm extends Component {
             }}
             showError={this.state.showCityError}
             errorText={'City Should Not Be Empty'}
+            placeholder={'Enter City Name'}
           />
 
-          <FormLabel label="Email" />
+          <FormLabel  />
 
           <Form
             value = {this.state.emailText}
@@ -367,9 +378,10 @@ export default class StudentForm extends Component {
             showError={this.state.showEmailError}
             errorText={'Email Should Not Be Empty'}
             formType="email-address"
+            placeholder={'Enter Email'}
           />
 
-          <FormLabel label="Phone" />
+          <FormLabel  />
 
           <Form
             value = {this.state.phoneText}
@@ -386,9 +398,10 @@ export default class StudentForm extends Component {
             showError={this.state.showPhoneError}
             errorText={'First Name Should Not Be Empty'}
             formType="phone-pad"
+            placeholder={'Enter Phone Number'}
           />
 
-          <FormLabel label="Email (2nd Email)" isRequired={false} />
+          <FormLabel  isRequired={false} />
 
           <Form
             value = {this.state.secondEmailText}
@@ -397,9 +410,10 @@ export default class StudentForm extends Component {
             }}
             formType="email-address"
             isRequired={false}
+            placeholder={'Enter 2nd Email'}
           />
 
-          <FormLabel isRequired={false} label="Phone (2nd Phone)" />
+          <FormLabel isRequired={false}  />
 
           <Form
           value = {this.state.secondPhoneText}
@@ -408,9 +422,10 @@ export default class StudentForm extends Component {
               this.setState({secondPhoneText:text})
             }}
             formType="phone-pad"
+            placeholder={'Enter 2nd Phone Number'}
           />
 
-          <FormLabel label="Password" />
+          <FormLabel  />
 
           <Form
             value = {this.state.passwordText}
@@ -439,9 +454,11 @@ export default class StudentForm extends Component {
             showError={this.state.showPasswordError}
             errorText={this.state.passwordErrorText}
             hideText={true}
+            placeholder={'Enter Password'}
+
           />
 
-          <FormLabel label="Confirm Password" />
+          <FormLabel  />
 
           <Form
             value = {this.state.confirmPasswordText}
@@ -470,10 +487,11 @@ export default class StudentForm extends Component {
             showError={this.state.showConfirmPasswordError}
             errorText={this.state.confirmPasswordErrorText}
             hideText={true}
+            placeholder={'Confirm Password'}
+
           />
 
           <FormLabel
-            label="Estimated Number Of Hours You Want To Take"
             isRequired={false}
           />
           <Form
@@ -482,9 +500,11 @@ export default class StudentForm extends Component {
             }}
             isRequired={false}
             value = {this.state.numberOfHoursText}
+            placeholder={'Enter Estimated Hours For Work'}
+
           />
 
-          <FormLabel label="NEPH number" isRequired={false} />
+          <FormLabel  isRequired={false} />
           <Form
             value = {this.state.nephText}
             callback={text => {
@@ -496,6 +516,7 @@ export default class StudentForm extends Component {
             formType="numeric"
             isRequired={false}
             inputLimit={12}
+            placeholder={'Enter NEPH Number'}
             showError={this.state.showNephError}
             onFocus={isRequired => {
               // if (this.state.nephText.length < 11)

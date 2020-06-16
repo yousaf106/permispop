@@ -175,7 +175,7 @@ export default class Identity extends Component {
     return (
       <View>
 
-        <FormLabel label="Tradename" />
+        <FormLabel label="" />
 
         <Form
           value={this.state.tradeNameText}
@@ -191,9 +191,10 @@ export default class Identity extends Component {
           }}
           showError={this.state.showTradeNameError}
           errorText={'Trade Name Should Not Be Empty'}
+          placeholder={"Enter Tradename"}
         />
 
-        <FormLabel label="Company Name" />
+        <FormLabel label="" />
 
         <Form
           value={this.state.companyNameText}
@@ -209,9 +210,10 @@ export default class Identity extends Component {
           }}
           showError={this.state.showCompanyNameError}
           errorText={'Company Name Should Not Be Empty'}
+          placeholder={"Enter Company Name"}
         />
 
-        <FormLabel label="Address" />
+        <FormLabel label="" />
 
         <Form
           value={this.state.addressText}
@@ -227,18 +229,20 @@ export default class Identity extends Component {
           }}
           showError={this.state.showAddressError}
           errorText={'Address Should Not Be Empty'}
+          placeholder={"Enter Address"}
         />
 
-        <FormLabel label="Complement" isRequired={false} />
+        <FormLabel label="" isRequired={false} />
 
         <Form
           value={this.state.complementText}
           callback={text => {
             this.setState ({complementText: text});
           }}
+          placeholder={"Enter Complement"}
         />
 
-        <FormLabel label="Zip Code" />
+        <FormLabel label="" />
 
         <Form
           value={this.state.zipCodeText}
@@ -255,9 +259,10 @@ export default class Identity extends Component {
           showError={this.state.showZipCodeError}
           errorText={'Zip Code Should Not Be Empty'}
           formType="number-pad"
+          placeholder={"Enter Zip Code"}
         />
 
-        <FormLabel label="City" />
+        <FormLabel label="" />
 
         <Form
           value={this.state.cityText}
@@ -273,9 +278,10 @@ export default class Identity extends Component {
           }}
           showError={this.state.showCityError}
           errorText={'City Should Not Be Empty'}
+          placeholder={"Enter City"}
         />
 
-        <FormLabel label="Email" />
+        <FormLabel label="" />
 
         <Form
           value={this.state.emailText}
@@ -303,9 +309,10 @@ export default class Identity extends Component {
           showError={this.state.showEmailError}
           errorText={this.state.emailErrorText}
           formType="email-address"
+          placeholder={"Enter Email"}
         />
 
-        <FormLabel label="Phone" />
+        <FormLabel label="" />
 
         <Form
           value={this.state.phoneText}
@@ -322,9 +329,10 @@ export default class Identity extends Component {
           showError={this.state.showPhoneError}
           errorText={'Phone No Should Not Be Empty'}
           formType="phone-pad"
+          placeholder={"Enter Phone"}
         />
 
-        <FormLabel label="Email (2nd Email)" isRequired={false} />
+        <FormLabel label="" isRequired={false} />
 
         <Form
           value={this.state.secondEmailText}
@@ -333,6 +341,7 @@ export default class Identity extends Component {
           }}
           formType="email-address"
           isRequired={false}
+          placeholder={"Enter Email (2nd Email)"}
         />
 
         <FormLabel isRequired={false} label="Phone (2nd Phone)" />
@@ -344,9 +353,10 @@ export default class Identity extends Component {
             this.setState ({secondPhoneText: text});
           }}
           formType="phone-pad"
+          placeholder={"Enter"}
         />
 
-        <FormLabel label="Password" />
+        <FormLabel label="" />
 
         <Form
           value={this.state.passwordText}
@@ -375,9 +385,10 @@ export default class Identity extends Component {
           showError={this.state.showPasswordError}
           errorText={this.state.passwordErrorText}
           hideText={true}
+          placeholder={"Enter Password"}
         />
 
-        <FormLabel label="Confirm Password" />
+        <FormLabel label="" />
 
         <Form
           value={this.state.confirmPasswordText}
@@ -406,6 +417,7 @@ export default class Identity extends Component {
           showError={this.state.showConfirmPasswordError}
           errorText={this.state.confirmPasswordErrorText}
           hideText={true}
+          placeholder={"Confirm Password"}
         />
 
         <View style={styles.buttonRow}>

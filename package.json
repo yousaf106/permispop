@@ -11,7 +11,10 @@
   },
   "dependencies": {
     "@babel/plugin-proposal-decorators": "^7.10.1",
+    "@react-native-community/blur": "^3.6.0",
+    "@react-native-community/datetimepicker": "^2.4.2",
     "@react-native-community/masked-view": "^0.1.10",
+    "@react-native-community/netinfo": "^5.9.2",
     "@react-native-community/picker": "^1.6.1",
     "@react-navigation/bottom-tabs": "^5.5.2",
     "@react-navigation/drawer": "^5.8.1",
@@ -35,6 +38,7 @@
     "react-native-simple-toast": "^1.1.2",
     "react-native-splash-screen": "^3.2.0",
     "react-native-step-indicator": "0.0.11",
+    "react-native-ui-lib": "^5.9.1",
     "react-native-vector-icons": "^6.6.0"
   },
   "devDependencies": {

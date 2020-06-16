@@ -39,7 +39,7 @@ export default class Manager extends Component {
       showCityError: false,
 
       agreed: false,
-      showAgreedError:false,  
+      showAgreedError:false,
       profileUri: '',
       showProfileError: false,
     };
@@ -87,11 +87,11 @@ export default class Manager extends Component {
 
     if (this.state.cityText.length === 0) this.setState ({showCityError: true});
     else this.setState ({showCityError: false});
-    
+
     if (!this.state.agreed) this.setState ({showAgreedError: true});
     else this.setState ({showAgreedError: false});
 
-    
+
 
   };
 
@@ -143,7 +143,7 @@ export default class Manager extends Component {
           text="Upload Image"
         />
 
-        <FormLabel label="First Name" />
+        <FormLabel label="" />
 
         <Form
           value={this.state.fitstNameText}
@@ -159,9 +159,10 @@ export default class Manager extends Component {
           }}
           showError={this.state.showFirstNameError}
           errorText={'First Name Should Not Be Empty'}
+          placeholder={"Enter First Name"}
         />
 
-        <FormLabel label="Surname" />
+        <FormLabel label="" />
 
         <Form
           value={this.state.surNameText}
@@ -177,6 +178,7 @@ export default class Manager extends Component {
           }}
           showError={this.state.showSurNameError}
           errorText={'Surname Should Not Be Empty'}
+          placeholder={"Enter Surname"}
         />
 
         <FormLabel label="Date Of Birth" />
@@ -189,7 +191,7 @@ export default class Manager extends Component {
         />
         <View style={styles.verticalSpace} />
 
-        <FormLabel label="Place Of Birth" />
+        <FormLabel label="" />
 
         <Form
           value={this.state.placeOfBirthText}
@@ -205,6 +207,7 @@ export default class Manager extends Component {
           }}
           showError={this.state.PlaceOfBirthError}
           errorText={'Place Of Birth Should Not Be Empty'}
+          placeholder={"Enter Place Of Birth"}
         />
 
         <FormLabel label="Gender" />
@@ -217,7 +220,7 @@ export default class Manager extends Component {
           }}
         />
 
-        <FormLabel label="Address" />
+        <FormLabel label="" />
 
         <Form
           value={this.state.addressText}
@@ -233,18 +236,20 @@ export default class Manager extends Component {
           }}
           showError={this.state.showAddressError}
           errorText={'Address Should Not Be Empty'}
+          placeholder={"Enter Address"}
         />
 
-        <FormLabel label="Complement" isRequired={false} />
+        <FormLabel label="" isRequired={false} />
 
         <Form
           value={this.state.complementText}
           callback={text => {
             this.setState ({complementText: text});
           }}
+          placeholder={"Enter Complement"}
         />
 
-        <FormLabel label="Zip Code" />
+        <FormLabel label="" />
 
         <Form
           value={this.state.zipCodeText}
@@ -261,9 +266,10 @@ export default class Manager extends Component {
           showError={this.state.showZipCodeError}
           errorText={'Zip Code Should Not Be Empty'}
           formType="number-pad"
+          placeholder={"Enter Zip Code"}
         />
 
-        <FormLabel label="City" />
+        <FormLabel label="" />
 
         <Form
           value={this.state.cityText}
@@ -279,6 +285,7 @@ export default class Manager extends Component {
           }}
           showError={this.state.showCityError}
           errorText={'City Should Not Be Empty'}
+          placeholder={"Enter City"}
         />
 
         <FormLabel label="Terms & Conditions Applied" />

@@ -24,7 +24,7 @@ const styles = StyleSheet.create ({
 
   titleText: {
     color: 'black',
-    marginTop: margins.verticalSpace,
+    marginTop: 20,
     fontSize: RFValue (15),
     fontFamily:'sans-serif-light',
     letterSpacing:2,
