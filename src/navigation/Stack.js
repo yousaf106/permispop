@@ -5,7 +5,10 @@ import {createStackNavigator} from '@react-navigation/stack';
 import ToggleButton from './Drawer/ToggleButton';
 import Splash from '../screens/Splash';
 import Login from '../screens/Login';
+import ContactUs from '../screens/ContactUs';
+import FaqScreen from '../screens/FaqScreen';
 import StudentForm from '../screens/registration/StudentForm';
+import Packages from '../screens/Packages';
 import {colors} from '../globals/styles';
 import StepManager from '../screens/registration/instructorForm/StepManager';
 import SchoolStepManager from '../screens/registration/drivingSchoolForm/StepManager';
@@ -63,6 +66,47 @@ const navigationStack = () => (
       component={StudentForm}
     />
 
+    <Stack.Screen
+      options={({navigation}) => ({
+        headerStyle: {
+          backgroundColor: colors.primary,
+        },
+        headerTitleStyle: {
+          color: 'white',
+        },
+        title: 'Contact Us',
+      })}
+      name="ContactUs"
+      component={ContactUs}
+    />
+
+    <Stack.Screen
+      options={({navigation}) => ({
+        headerStyle: {
+          backgroundColor: colors.primary,
+        },
+        headerTitleStyle: {
+          color: 'white',
+        },
+        title: 'FAQs',
+      })}
+      name="FaqScreen"
+      component={FaqScreen}
+    />
+
+    <Stack.Screen
+      options={({navigation}) => ({
+        headerStyle: {
+          backgroundColor: colors.primary,
+        },
+        headerTitleStyle: {
+          color: 'white',
+        },
+        title: 'Our Price Packages',
+      })}
+      name="Packages"
+      component={Packages}
+    />
 
 
     <Stack.Screen

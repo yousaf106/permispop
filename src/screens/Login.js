@@ -6,10 +6,14 @@ import {
   TextInput,
   StyleSheet,
   Text,
+  Dimensions,
   CheckBox,
 } from 'react-native';
 import {RFValue} from 'react-native-responsive-fontsize';
 import {margins, paddings, colors} from '../globals/styles';
+
+const{ width, height } = Dimensions.get('window');
+
 export default class Login extends Component {
   constructor (props) {
     super (props);
@@ -158,6 +162,9 @@ const styles = StyleSheet.create ({
   },
   textInput: {
     width: '85%',
+    color: '#FFFFFF',
+    fontSize: 20,
+    marginLeft:10
   },
   formTitle: {
     color: 'white',
@@ -168,11 +175,12 @@ const styles = StyleSheet.create ({
   textInputRow: {
     flexDirection: 'row',
     width: '100%',
-    backgroundColor: 'white',
+    backgroundColor: 'rgba(255, 255, 255, 0.5)',
     height: 50,
     borderColor: 'black',
     borderWidth: 0.5,
     marginTop: margins.verticalSpace,
+    borderRadius: 10
   },
   textInputImageContainer: {
     width: '15%',
@@ -185,6 +193,7 @@ const styles = StyleSheet.create ({
     width: 25,
     height: 25,
     resizeMode: 'contain',
+    tintColor: '#FFFFFF'
   },
   rememberMeRow: {
     width: '100%',
@@ -201,7 +210,6 @@ const styles = StyleSheet.create ({
     marginTop: margins.verticalSpace,
     fontSize: RFValue (15),
     textAlign: 'center',
-    marginTop: 5,
     marginStart: 5,
   },
   buttonRow: {
@@ -218,6 +226,7 @@ const styles = StyleSheet.create ({
     justifyContent: 'center',
     borderColor: 'black',
     borderWidth: 0.5,
+    borderRadius: 10
   },
   registerButtonContainer: {
     width: '48%',

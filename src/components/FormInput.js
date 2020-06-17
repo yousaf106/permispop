@@ -37,6 +37,7 @@ const Form = ({
 
       <View style={styles.textInputContainer}>
         <TextField
+          underlineColor={ {default: 'black', error: 'red', focus: 'blue', disabled: 'grey'} }
           placeholder={placeholder}
           floatOnFocus={true}
           floatingPlaceholder={true}

@@ -1,0 +1,14 @@
+[
+  {
+    "type": "Starter",
+    "price": 0.99,
+  },
+  {
+    "type": "Medium",
+    "price": 0.99,
+  },
+  {
+    "type": "Professional",
+    "price": 0.99,
+  }
+]

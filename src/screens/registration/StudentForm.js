@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, StyleSheet, ScrollView, Text} from 'react-native';
+import {View, StyleSheet, ScrollView, Text, TouchableOpacity} from 'react-native';
 import {margins, paddings} from '../../globals/styles';
 import Form from '../../components/FormInput';
 import CalandarInput from '../../components/CalendarInput';
@@ -179,6 +179,9 @@ export default class StudentForm extends Component {
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{paddingBottom: 20}}
         >
+          <TouchableOpacity onPress={() => {this.props.navigation.navigate('ContactUs')}}>
+            <Text>Contact Us</Text>
+          </TouchableOpacity>
           <UploadAvatar
             showError={this.state.showProfileError}
             errorText={'you must upload a profile image'}
