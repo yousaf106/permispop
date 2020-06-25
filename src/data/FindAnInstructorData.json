@@ -1,0 +1,26 @@
+[
+  {
+    "gearBox": {
+      "gearBoxAll": "All",
+      "gearBoxAutomatic": "Automatic",
+      "gearBoxManual": "Manual"
+    },
+    "Gender": {
+      "genderAll": "All",
+      "genderMale": "Male",
+      "genderFemale": "Female"
+    },
+    "Range": {
+      "rangeOne": 5,
+      "rangeTwo": 10,
+      "rangeThree": 20,
+      "rangeFour": 30,
+      "rangeFive": 50
+    },
+    "Role": {
+      "roleAll": "All",
+      "roleDrivingSchool": "Driving School",
+      "roleInstructor": "Instructor"
+    }
+  }
+]

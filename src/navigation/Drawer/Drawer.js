@@ -1,6 +1,11 @@
 import React from 'react';
 import {View, Text, Button} from 'react-native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
+import Profile from '../../screens/drarwer/Profile';
+import FindAnInstructor from '../../screens/drarwer/FindAnInstructor';
+import Disputes from '../../screens/drarwer/Disputes';
+import PendingRequests from '../../screens/drarwer/PendingRequests';
+
 import DrawerMenu from './DrawerMenu';
 function HomeScreen({navigation}) {
   return (
@@ -24,12 +29,17 @@ function NotificationsScreen({navigation}) {
 const Drawer = createDrawerNavigator ();
 
 const navigationDrawer = ({navigation}) => (
-  <Drawer.Navigator initialRouteName="HomeScreen"
-  drawerContent = {
-    ()=><DrawerMenu navigation = {navigation}/>
+  <Drawer.Navigator initialRouteName="Profile" contentOptions={{activeTintColor: '#1F9C64'}} drawerContent = {
+    () => <DrawerMenu
+      navigation = {navigation}
+    />
   }>
     <Drawer.Screen name="HomeScreen" component={HomeScreen} />
+    <Drawer.Screen name="Profile" component={Profile} />
     <Drawer.Screen name="Notifications" component={NotificationsScreen} />
+    <Drawer.Screen name="FindAnInstructor" component={FindAnInstructor} />
+    <Drawer.Screen name="Disputes" component={Disputes} />
+    <Drawer.Screen name="PendingRequests" component={PendingRequests} />
   </Drawer.Navigator>
 );
 export default navigationDrawer;

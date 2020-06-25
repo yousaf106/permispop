@@ -48,6 +48,11 @@ export default class Packages extends Component {
               </TouchableOpacity>
             )
           }}/>
+          <TouchableOpacity onPress={() => {
+            this.props.navigation.navigate('navigationDrawer');
+          }}>
+            <Text>Drawer Home</Text>
+          </TouchableOpacity>
       </View>
     );
   }

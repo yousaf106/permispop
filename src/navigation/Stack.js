@@ -11,16 +11,15 @@ import StudentForm from '../screens/registration/StudentForm';
 import Packages from '../screens/Packages';
 import {colors} from '../globals/styles';
 import StepManager from '../screens/registration/instructorForm/StepManager';
+import navigationDrawer from './Drawer/Drawer';
 import SchoolStepManager from '../screens/registration/drivingSchoolForm/StepManager';
 import ScreenNavigator from '../screens/registration/ScreenNavigator';
-const Stack = createStackNavigator ();
+
+const Stack = createStackNavigator();
 
 const navigationStack = () => (
-  <Stack.Navigator>
-
-
-
-<Stack.Screen
+  <Stack.Navigator initialRouteName={'StudentForm'}>
+    <Stack.Screen
       options={({navigation}) => ({
         headerStyle: {
           backgroundColor: colors.primary,
@@ -33,10 +32,7 @@ const navigationStack = () => (
       name="ScreenNavigator"
       component={ScreenNavigator}
     />
-
-
-
-<Stack.Screen
+    <Stack.Screen
       options={({navigation}) => ({
         headerStyle: {
           backgroundColor: colors.primary,
@@ -49,9 +45,6 @@ const navigationStack = () => (
       name="StepManager"
       component={StepManager}
     />
-
-
-
     <Stack.Screen
       options={({navigation}) => ({
         headerStyle: {
@@ -65,7 +58,6 @@ const navigationStack = () => (
       name="StudentForm"
       component={StudentForm}
     />
-
     <Stack.Screen
       options={({navigation}) => ({
         headerStyle: {
@@ -79,7 +71,6 @@ const navigationStack = () => (
       name="ContactUs"
       component={ContactUs}
     />
-
     <Stack.Screen
       options={({navigation}) => ({
         headerStyle: {
@@ -93,7 +84,6 @@ const navigationStack = () => (
       name="FaqScreen"
       component={FaqScreen}
     />
-
     <Stack.Screen
       options={({navigation}) => ({
         headerStyle: {
@@ -107,8 +97,19 @@ const navigationStack = () => (
       name="Packages"
       component={Packages}
     />
-
-
+    <Stack.Screen
+      options={({navigation}) => ({
+        headerStyle: {
+          backgroundColor: colors.primary,
+        },
+        headerTitleStyle: {
+          color: 'white',
+        },
+        title: "Home",
+      })}
+      name="navigationDrawer"
+      component={navigationDrawer}
+    />
     <Stack.Screen
       options={({navigation}) => ({
         headerShown: false,
@@ -116,7 +117,6 @@ const navigationStack = () => (
       name="Login"
       component={Login}
     />
-
     <Stack.Screen
       options={({navigation}) => ({
         headerShown: false,
@@ -129,7 +129,7 @@ const navigationStack = () => (
       component={NavigationDrawer}
       options={({navigation}) => ({
         headerStyle: {backgroundColor: 'red'},
-        headerLeft: ({}) => <ToggleButton />,
+        headerLeft: ({}) => <ToggleButton/>,
         //  headerLeft:()=>ToggleButton(navigation),
       })}
     />
