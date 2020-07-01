@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, TouchableOpacity, Dimensions, ImageBackground, Image} from 'react-native';
+import {View, Text, TouchableOpacity, Dimensions, ImageBackground, Image, ScrollView} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {RFValue} from 'react-native-responsive-fontsize';
 import ElevatedView from 'react-native-elevated-view'
@@ -14,7 +14,7 @@ class DrawerMenu extends Component {
 
   render() {
     return (
-      <View style={{flex: 1 }}>
+      <View style={{flex: 1}}>
 
         <ImageBackground source={require('../../../res/images/login_bg.jpg')} style={{
           // width: width * 0.69,
@@ -30,7 +30,7 @@ class DrawerMenu extends Component {
         }}>
 
 
-        <View style={styles.lgView}>
+        <ScrollView style={styles.lgView} contentContainerStyle={{alignItems: 'center'}}>
 
 
 
@@ -44,11 +44,13 @@ class DrawerMenu extends Component {
               elevation={this.state.active === 'profile' ? 200 : 0}
               style={{
               backgroundColor: this.state.active === "profile" ? "#FFFFFF" : 'rgba(0, 0, 0, 0.2)',
-              paddingVertical: this.state.active === "profile" ? 23 : 20,
+              paddingVertical: this.state.active === "profile" ? 18 : 16,
               paddingHorizontal: this.state.active === "profile" ? 14 : 14,
-              width: this.state.active === 'profile' ? width * 0.7 : width * 0.679,
+              width: this.state.active === 'profile' ? width * 0.679 : width * 0.679,
               borderBottomWidth: this.state.active !== 'history' ? 1 : 0,
-              borderBottomColor: '#FFFFFF'
+              borderBottomColor: '#FFFFFF',
+              borderTopWidth: 1,
+              borderTopColor: '#FFFFFF'
             }}>
 
               <Text style={{
@@ -62,16 +64,16 @@ class DrawerMenu extends Component {
 
           <TouchableOpacity onPress={() => {
             this.setState({active: 'history'});
-            // this.props.navigation.navigate('Notifications');
+            this.props.navigation.navigate('History');
           }}
           >
             <ElevatedView
               elevation={this.state.active === 'history' ? 200 : 0}
               style={{
               backgroundColor: this.state.active === "history" ? "#FFFFFF" : 'rgba(0, 0, 0, 0.2)',
-              paddingVertical: this.state.active === "history" ? 23 : 20,
+              paddingVertical: this.state.active === "history" ? 18 : 16,
               paddingHorizontal: this.state.active === "history" ? 14 : 14,
-              width: this.state.active === 'history' ? width * 0.7 : width * 0.679,
+              width: this.state.active === 'history' ? width * 0.679 : width * 0.679,
               borderBottomWidth: this.state.active !== 'bookings' ? 1 : 0,
               borderBottomColor: '#FFFFFF'
             }}>
@@ -92,9 +94,9 @@ class DrawerMenu extends Component {
               elevation={this.state.active === 'bookings' ? 200 : 0}
               style={{
               backgroundColor: this.state.active === "bookings" ? "#FFFFFF" : 'rgba(0, 0, 0, 0.2)',
-              paddingVertical: this.state.active === "bookings" ? 23 : 20,
+              paddingVertical: this.state.active === "bookings" ? 18 : 16,
               paddingHorizontal: this.state.active === "bookings" ? 14 : 14,
-              width: this.state.active === 'bookings' ? width * 0.7 : width * 0.679,
+              width: this.state.active === 'bookings' ? width * 0.679 : width * 0.679,
               borderBottomWidth: this.state.active !== 'pending requests' ? 1 : 0,
               borderBottomColor: '#FFFFFF'
             }}>
@@ -108,16 +110,16 @@ class DrawerMenu extends Component {
 
           <TouchableOpacity onPress={() => {
             this.setState({active: 'pending requests'});
-            // this.props.navigation.navigate('Notifications');
+            this.props.navigation.navigate('PendingRequests');
           }}
           >
             <ElevatedView
               elevation={this.state.active === 'pending requests' ? 200 : 0}
               style={{
               backgroundColor: this.state.active === "pending requests" ? "#FFFFFF" : 'rgba(0, 0, 0, 0.2)',
-              paddingVertical: this.state.active === "pending requests" ? 23 : 20,
+              paddingVertical: this.state.active === "pending requests" ? 18 : 16,
               paddingHorizontal: this.state.active === "pending requests" ? 14 : 14,
-              width: this.state.active === 'pending requests' ? width * 0.7 : width * 0.679,
+              width: this.state.active === 'pending requests' ? width * 0.679 : width * 0.679,
               borderBottomWidth: this.state.active !== 'find an instructor' ? 1 : 0,
               borderBottomColor: '#FFFFFF'
             }}>
@@ -138,9 +140,9 @@ class DrawerMenu extends Component {
               elevation={this.state.active === 'find an instructor' ? 200 : 0}
               style={{
               backgroundColor: this.state.active === "find an instructor" ? "#FFFFFF" : 'rgba(0, 0, 0, 0.2)',
-              paddingVertical: this.state.active === "find an instructor" ? 23 : 20,
+              paddingVertical: this.state.active === "find an instructor" ? 18 : 16,
               paddingHorizontal: this.state.active === "find an instructor" ? 14 : 14,
-              width: this.state.active === 'find an instructor' ? width * 0.7 :width * 0.679,
+              width: this.state.active === 'find an instructor' ? width * 0.679 :width * 0.679,
               borderBottomWidth: this.state.active !== 'find instructor on map' ? 1 : 0,
               borderBottomColor: '#FFFFFF'
             }}>
@@ -154,16 +156,16 @@ class DrawerMenu extends Component {
 
           <TouchableOpacity onPress={() => {
             this.setState({active: 'find instructor on map'});
-            // this.props.navigation.navigate('Notifications');
+            this.props.navigation.navigate('FindInstructorOnMap');
           }}
           >
             <ElevatedView
               elevation={this.state.active === 'find instructor on map' ? 200 : 0}
               style={{
               backgroundColor: this.state.active === "find instructor on map" ? "#FFFFFF" : 'rgba(0, 0, 0, 0.2)',
-              paddingVertical: this.state.active === "find instructor on map" ? 23 : 20,
+              paddingVertical: this.state.active === "find instructor on map" ? 18 : 16,
               paddingHorizontal: this.state.active === "find instructor on map" ? 14 : 14,
-              width: this.state.active === 'find instructor on map' ? width * 0.7 : width * 0.679,
+              width: this.state.active === 'find instructor on map' ? width * 0.679 : width * 0.679,
               borderBottomWidth: 1,
               borderBottomColor: '#FFFFFF'
             }}>
@@ -184,10 +186,10 @@ class DrawerMenu extends Component {
               elevation={this.state.active === 'disputes' ? 200 : 0}
               style={{
                 backgroundColor: this.state.active === "disputes" ? "#FFFFFF" : 'rgba(0, 0, 0, 0.2)',
-                paddingVertical: this.state.active === "disputes" ? 23 : 20,
+                paddingVertical: this.state.active === "disputes" ? 18 : 16,
                 paddingHorizontal: this.state.active === "disputes" ? 14 : 14,
-                width: this.state.active === 'disputes' ? width * 0.7 : width * 0.679,
-                borderBottomWidth: this.state.active !== 'history' ? 1 : 0,
+                width: this.state.active === 'disputes' ? width * 0.679 : width * 0.679,
+                borderBottomWidth: this.state.active !== 'disputes' ? 1 : 0,
                 borderBottomColor: '#FFFFFF'
               }}>
 
@@ -208,10 +210,10 @@ class DrawerMenu extends Component {
               elevation={this.state.active === 'pendingrequests' ? 200 : 0}
               style={{
                 backgroundColor: this.state.active === "pendingrequests" ? "#FFFFFF" : 'rgba(0, 0, 0, 0.2)',
-                paddingVertical: this.state.active === "pendingrequests" ? 23 : 20,
+                paddingVertical: this.state.active === "pendingrequests" ? 18 : 16,
                 paddingHorizontal: this.state.active === "pendingrequests" ? 14 : 14,
-                width: this.state.active === 'pendingrequests' ? width * 0.7 : width * 0.679,
-                borderBottomWidth: this.state.active !== 'history' ? 1 : 0,
+                width: this.state.active === 'pendingrequests' ? width * 0.679 : width * 0.679,
+                borderBottomWidth: this.state.active !== 'pendingrequests' ? 1 : 0,
                 borderBottomColor: '#FFFFFF'
               }}>
 
@@ -223,8 +225,57 @@ class DrawerMenu extends Component {
             </ElevatedView>
           </TouchableOpacity>
 
+            <TouchableOpacity onPress={() => {
+              this.setState({active: 'mylearning'});
+              this.props.navigation.navigate('MyLearning');
 
-        </View>
+            }}>
+              <ElevatedView
+                elevation={this.state.active === 'mylearning' ? 200 : 0}
+                style={{
+                  backgroundColor: this.state.active === "mylearning" ? "#FFFFFF" : 'rgba(0, 0, 0, 0.2)',
+                  paddingVertical: this.state.active === "mylearning" ? 18 : 16,
+                  paddingHorizontal: this.state.active === "mylearning" ? 14 : 14,
+                  width: this.state.active === 'mylearning' ? width * 0.679 : width * 0.679,
+                  borderBottomWidth: this.state.active !== 'mylearning' ? 1 : 0,
+                  borderBottomColor: '#FFFFFF'
+                }}>
+
+                <Text style={{
+                  color: this.state.active === "mylearning" ? '#000000' : '#FFFFFF',
+                  fontSize: RFValue(25),
+                  fontWeight: this.state.active === 'mylearning' ? '600' : '500'
+                }}>My Learning</Text>
+              </ElevatedView>
+            </TouchableOpacity>
+
+
+          {/*<TouchableOpacity onPress={() => {*/}
+          {/*  this.setState({active: 'findinstructoronmap'});*/}
+          {/*  this.props.navigation.navigate('FindInstructorOnMap');*/}
+
+          {/*}}>*/}
+          {/*  <ElevatedView*/}
+          {/*    elevation={this.state.active === 'findinstructoronmap' ? 200 : 0}*/}
+          {/*    style={{*/}
+          {/*      backgroundColor: this.state.active === "findinstructoronmap" ? "#FFFFFF" : 'rgba(0, 0, 0, 0.2)',*/}
+          {/*      paddingVertical: this.state.active === "findinstructoronmap" ? 18 : 16,*/}
+          {/*      paddingHorizontal: this.state.active === "findinstructoronmap" ? 14 : 14,*/}
+          {/*      width: this.state.active === 'findinstructoronmap' ? width * 0.679 : width * 0.679,*/}
+          {/*      borderBottomWidth: this.state.active !== 'findinstructoronmap' ? 1 : 0,*/}
+          {/*      borderBottomColor: '#FFFFFF'*/}
+          {/*    }}>*/}
+
+          {/*    <Text style={{*/}
+          {/*      color: this.state.active === "findinstructoronmap" ? '#000000' : '#FFFFFF',*/}
+          {/*      fontSize: RFValue(25),*/}
+          {/*      fontWeight: this.state.active === 'findinstructoronmap' ? '600' : '500'*/}
+          {/*    }}>My Learning</Text>*/}
+          {/*  </ElevatedView>*/}
+          {/*</TouchableOpacity>*/}
+
+
+        </ScrollView>
         </ImageBackground>
       </View>
     )
@@ -235,8 +286,9 @@ const styles = {
   lgView: {
     // backgroundColor: '#149E7A',
     padding: 0,
-    alignItems: 'center',
+
     // elevation: 7,
+    marginTop: width*0.06
 
   },
   stayElevated: {

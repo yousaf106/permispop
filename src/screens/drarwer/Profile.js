@@ -3,6 +3,7 @@ import {View, StyleSheet, ScrollView, Text, TouchableOpacity, FlatList, Dimensio
 import {colors, margins, paddings} from '../../globals/styles';
 import {RFValue} from 'react-native-responsive-fontsize';
 import {Rating} from 'react-native-ratings';
+import DrawerHeader from '../../components/DrawerHeader';
 
 
 
@@ -27,7 +28,9 @@ export default class Profile extends Component {
 
   render() {
     return (
+
       <View style={styles.container}>
+        <DrawerHeader title={'Profile'} callBack={() => {this.props.navigation.openDrawer()}}/>
         <ImageBackground source={require('../../../res/images/login_bg.jpg')} style={styles.imageBackground}>
           <Image source={
                   require('../../../res/images/default_avatar.png')}

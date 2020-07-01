@@ -14,6 +14,7 @@ import {colors, margins, paddings} from '../../globals/styles';
 import {RFValue} from 'react-native-responsive-fontsize';
 import {Picker} from '@react-native-community/picker';
 import findInstructorData from '../../data/findInstructorData'
+import DrawerHeader from "../../components/DrawerHeader";
 
 
 let gearBox = '';
@@ -23,7 +24,7 @@ let role = '';
 
 const {width, height} = Dimensions.get('window');
 
-export default class Profile extends Component {
+export default class FindAnInstructor extends Component {
 
   state = {
     // gearBox: 'All',
@@ -39,6 +40,7 @@ export default class Profile extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <DrawerHeader title={'Find an Instructor'} callBack={() => {this.props.navigation.openDrawer()}}/>
         <ScrollView>
           <View style={styles.parentView}>
 

@@ -5,6 +5,9 @@ import Profile from '../../screens/drarwer/Profile';
 import FindAnInstructor from '../../screens/drarwer/FindAnInstructor';
 import Disputes from '../../screens/drarwer/Disputes';
 import PendingRequests from '../../screens/drarwer/PendingRequests';
+import History from '../../screens/drarwer/History';
+import MyLearning from '../../screens/drarwer/MyLearning';
+import FindInstructorOnMap from '../../screens/drarwer/FindInstructorOnMap';
 
 import DrawerMenu from './DrawerMenu';
 function HomeScreen({navigation}) {
@@ -29,7 +32,7 @@ function NotificationsScreen({navigation}) {
 const Drawer = createDrawerNavigator ();
 
 const navigationDrawer = ({navigation}) => (
-  <Drawer.Navigator initialRouteName="Profile" contentOptions={{activeTintColor: '#1F9C64'}} drawerContent = {
+  <Drawer.Navigator  initialRouteName="Profile" contentOptions={{activeTintColor: '#1F9C64'}} drawerContent = {
     () => <DrawerMenu
       navigation = {navigation}
     />
@@ -40,6 +43,9 @@ const navigationDrawer = ({navigation}) => (
     <Drawer.Screen name="FindAnInstructor" component={FindAnInstructor} />
     <Drawer.Screen name="Disputes" component={Disputes} />
     <Drawer.Screen name="PendingRequests" component={PendingRequests} />
+    <Drawer.Screen name="History" component={History} />
+    <Drawer.Screen name="MyLearning" component={MyLearning} />
+    <Drawer.Screen name="FindInstructorOnMap" component={FindInstructorOnMap} />
   </Drawer.Navigator>
 );
 export default navigationDrawer;

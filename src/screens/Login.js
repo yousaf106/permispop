@@ -11,19 +11,45 @@ import {
 } from 'react-native';
 import {RFValue} from 'react-native-responsive-fontsize';
 import {margins, paddings, colors} from '../globals/styles';
+import Form from "../components/FormInput";
 
 const{ width, height } = Dimensions.get('window');
 
 export default class Login extends Component {
-  constructor (props) {
-    super (props);
-    this.state = {
-      showPassword: true,
-      checked: false,
-      email: '',
-      password: '',
-    };
+
+
+
+  // constructor (props) {
+  // //   super (props);
+  // //   this.state = {
+  // //     showPassword: true,
+  // //     checked: false,
+  // //     email: '',
+  // //     password: '',
+  // //   };
+  // }
+  //
+
+  checkForEmptyFields = () => {
+    if (this.state.email.length === 0) {
+      this.setState({showFirstNameError: true});
+    }
   }
+
+  state = {
+    email: '',
+    password: '',
+    checked: false,
+    showFirstNameError: true,
+    showError: true,
+    loginOnPress: false,
+    passwordError: false,
+    showLoginError: true,
+    showPassword: true
+  }
+
+
+
   render () {
     return (
       <View style={styles.container}>
@@ -40,13 +66,19 @@ export default class Login extends Component {
             <Text style={styles.formTitle}>
               Email
             </Text>
+            {(this.state.showError && this.state.loginOnPress)
+              ? <Text style={styles.redText}>Please enter email</Text>
+              : <View />}
             <View style={styles.textInputRow}>
+
               <TextInput
                 value={this.state.email}
-                onChangeText={text => this.setState ({email: text})}
+                onChangeText={text => this.setState ({email: text, showLoginError: false})}
                 keyboardType={'email-address'}
                 style={styles.textInput}
                 underlineColorAndroid={'transparent'}
+                showError={this.state.showFirstNameError}
+                errorText={'First Name Should Not Be Empty'}
               />
               <View style={styles.textInputImageContainer}>
                 <Image
@@ -58,10 +90,13 @@ export default class Login extends Component {
             <Text style={styles.formTitle}>
               Password
             </Text>
+            {(this.state.showError && this.state.passwordError)
+              ? <Text style={styles.redText}>Please enter password</Text>
+              : <View />}
             <View style={styles.textInputRow}>
               <TextInput
                 value={this.state.password}
-                onChangeText={text => this.setState ({password: text})}
+                onChangeText={text => this.setState ({password: text, passwordError: false}, ()=>{console.warn(this.state.passwordError)})}
                 secureTextEntry={this.state.showPassword ? true : false}
                 style={styles.textInput}
                 underlineColorAndroid={'transparent'}
@@ -108,12 +143,29 @@ export default class Login extends Component {
             </View>
 
             <View style={styles.buttonRow}>
-              <TouchableOpacity style={styles.loginButtonContainer}>
+              <TouchableOpacity onPress={() => {
+                if (this.state.email === '' || this.state.password === '') {
+                  // this.forceUpdate()
+                  if (this.state.email === '') {
+                    this.setState({loginOnPress: true});
+                  } else {
+                    this.setState({loginOnPress: false});
+                  }
+                  if (this.state.password === '') {
+                    this.setState({passwordError: true});
+                  } else {
+                    this.setState({passwordError: false});
+                  }
+                } else {
+                  this.props.navigation.navigate('navigationDrawer');
+                }
+              }}
+                                style={styles.loginButtonContainer}>
                 <Text style={styles.buttonText}>
                   LOGIN
                 </Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.registerButtonContainer}>
+              <TouchableOpacity onPress={() => {this.props.navigation.navigate('ScreenNavigator')}} style={styles.registerButtonContainer}>
                 <Text style={styles.buttonText}>
                   REGISTER NOW
                 </Text>
@@ -159,6 +211,11 @@ const styles = StyleSheet.create ({
     paddingStart: paddings.horizontalPadding,
     paddingEnd: paddings.horizontalPadding,
     width: '100%',
+  },
+  redText: {
+    color: 'red',
+    fontSize: RFValue (14),
+    marginTop: margins.verticalSpace,
   },
   textInput: {
     width: '85%',

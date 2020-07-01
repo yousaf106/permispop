@@ -14,6 +14,7 @@ import DatePicker from 'react-native-datepicker';
 import {colors, margins, paddings} from '../../globals/styles';
 import {RFValue} from 'react-native-responsive-fontsize';
 import PendingRequestData from '../../data/PendingRequestData';
+import DrawerHeader from "../../components/DrawerHeader";
 
 const {width, height} = Dimensions.get('window');
 
@@ -27,7 +28,7 @@ export default class PendingRequests extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.titleOfPageText}>Pending Requests</Text>
+        <DrawerHeader title={'Pending Requests'} callBack={() => {this.props.navigation.openDrawer()}}/>
         <View style={styles.datePickerView}>
           <DatePicker
             style={{width: width * 0.4}}

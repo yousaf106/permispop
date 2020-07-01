@@ -9,7 +9,7 @@ export default class Splash extends Component {
 
   componentDidMount () {
     setTimeout (() => {
-      restartNavigationStack(this.props,'Drawer');
+      restartNavigationStack(this.props,'Login');
     }, 5000);
   }
 

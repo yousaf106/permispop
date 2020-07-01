@@ -8,17 +8,19 @@ import Login from '../screens/Login';
 import ContactUs from '../screens/ContactUs';
 import FaqScreen from '../screens/FaqScreen';
 import StudentForm from '../screens/registration/StudentForm';
+import Details from '../screens/registration/drivingSchoolForm/Details';
 import Packages from '../screens/Packages';
 import {colors} from '../globals/styles';
 import StepManager from '../screens/registration/instructorForm/StepManager';
 import navigationDrawer from './Drawer/Drawer';
 import SchoolStepManager from '../screens/registration/drivingSchoolForm/StepManager';
 import ScreenNavigator from '../screens/registration/ScreenNavigator';
+import TypeSelect from '../screens/TypeSelect';
 
 const Stack = createStackNavigator();
 
 const navigationStack = () => (
-  <Stack.Navigator initialRouteName={'StudentForm'}>
+  <Stack.Navigator initialRouteName={'Splash'}>
     <Stack.Screen
       options={({navigation}) => ({
         headerStyle: {
@@ -73,6 +75,13 @@ const navigationStack = () => (
     />
     <Stack.Screen
       options={({navigation}) => ({
+        headerShown: false,
+      })}
+      name="TypeSelect"
+      component={TypeSelect}
+    />
+    <Stack.Screen
+      options={({navigation}) => ({
         headerStyle: {
           backgroundColor: colors.primary,
         },
@@ -98,14 +107,16 @@ const navigationStack = () => (
       component={Packages}
     />
     <Stack.Screen
+
       options={({navigation}) => ({
-        headerStyle: {
-          backgroundColor: colors.primary,
-        },
-        headerTitleStyle: {
-          color: 'white',
-        },
-        title: "Home",
+        // headerStyle: {
+        //   backgroundColor: colors.primary,
+        // },
+        // headerTitleStyle: {
+        //   color: 'white',
+        // },
+        // title: "Home",
+        headerShown: false,
       })}
       name="navigationDrawer"
       component={navigationDrawer}
@@ -119,7 +130,7 @@ const navigationStack = () => (
     />
     <Stack.Screen
       options={({navigation}) => ({
-        headerShown: false,
+        headerShown: false
       })}
       name="Splash"
       component={Splash}
@@ -127,11 +138,13 @@ const navigationStack = () => (
     <Stack.Screen
       name="Drawer"
       component={NavigationDrawer}
+
       options={({navigation}) => ({
-        headerStyle: {backgroundColor: 'red'},
+        // headerStyle: {backgroundColor: 'red'},
         headerLeft: ({}) => <ToggleButton/>,
         //  headerLeft:()=>ToggleButton(navigation),
       })}
+
     />
   </Stack.Navigator>
 );
